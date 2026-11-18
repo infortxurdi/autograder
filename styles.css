@@ -418,6 +418,7 @@ body {
     }
 }
 
+/*DESCARGA*/
 
 .download-area {
     margin-top: 12px;
@@ -461,4 +462,111 @@ body {
 .markdown-section .download-btn:hover {
     background-color: var(--accent-color);
     border-color: var(--accent-color);
+}
+
+
+/* Estructura con menú lateral */
+body.has-sidebar {
+  margin: 0;
+  display: flex;
+  min-height: 100vh;
+}
+
+.app-sidebar {
+  position: sticky;
+  top: 0;
+  align-self: flex-start;
+  width: 260px;
+  height: 100vh;
+  overflow-y: auto;
+  flex-shrink: 0;
+  background-color: #f8f9fa;
+  border-right: 1px solid #e1e4e8;
+  padding: 1.25rem;
+  box-sizing: border-box;
+}
+
+.lang-switcher {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #e1e4e8;
+}
+
+.lang-switcher a {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.65rem;
+  border-radius: 6px;
+  text-decoration: none;
+  color: #333;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border: 1px solid transparent;
+}
+
+.lang-switcher a.active-lang {
+  background-color: #ffffff;
+  border-color: #d0d7de;
+}
+
+.lang-switcher img {
+  width: 20px;
+  height: auto;
+  border-radius: 2px;
+}
+
+.nav-title {
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  color: #57606a;
+  margin: 1rem 0 0.5rem;
+}
+
+.sidebar-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-nav li a {
+  display: block;
+  padding: 0.45rem 0.75rem;
+  border-radius: 6px;
+  text-decoration: none;
+  color: #24292f;
+  font-size: 0.95rem;
+}
+
+.sidebar-nav li a:hover {
+  background-color: #eaeef2;
+}
+
+.sidebar-nav li a.active {
+  background-color: #0969da;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.app-content {
+  flex: 1;
+  padding: 2rem;
+  max-width: 960px;
+}
+
+@media (max-width: 768px) {
+  body.has-sidebar {
+    flex-direction: column;
+  }
+  .app-sidebar {
+    position: static;
+    width: 100%;
+    height: auto;
+    overflow-y: visible;
+    border-right: none;
+    border-bottom: 1px solid #e1e4e8;
+  }
 }
