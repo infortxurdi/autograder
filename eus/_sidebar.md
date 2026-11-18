@@ -5,7 +5,7 @@
   * [Ongi etorri](/eus/)
 
 * **Java Ariketak**
-  * [Kontrol egiturak](eus/kontrol_egiturak.html ':ignore')
-  * [Arrayak](eus/array.html ':ignore')
-  * [POO (Klaseak eta Objektuak)](eus/poo.html ':ignore')
-  * [ArrayListak](eus/arrayList.html ':ignore')
+  * [Kontrol egiturak](eus/kontrol_egiturak.html)
+  * [Arrayak](eus/array.html)
+  * [POO (Klaseak eta Objektuak)](eus/poo.html)
+  * [ArrayListak](eus/arrayList.html)
