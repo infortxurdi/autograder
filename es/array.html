@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios de Programación Java - Arrays</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+    <div class="container">
+        <div class="header-container">
+            <div class="header-title">Ejercicios de Programación Java</div>
+            <div class="header-subtitle">Arrays: for indexado y bucles while</div>
+            <div class="meta-info">
+                <div><strong>Paquete:</strong> <span class="code-inline" style="color: #ffffff; background: #2b6cb0;">array</span></div>
+                <div><strong>Clase:</strong> <span class="code-inline" style="color: #ffffff; background: #2b6cb0;">Ariketak</span></div>
+                <div class="download-area"><a href="/es/zips/array.zip" class="download-btn" download> DESCARGAR </a></div>
+            </div>
+        </div>
+
+        <div class="instructions-box">
+            <div class="instructions-title">📋 Instrucciones</div>
+            Completa la lógica de cada método en el archivo <span class="code-inline">Ariketak.java</span>, respetando las especificaciones y ejemplos descritos en los comentarios Javadoc. Todos los ejercicios son estáticos (<span class="code-inline">public static</span>) y deben devolver valores del tipo indicado.
+        </div>
+
+        <!-- BLOQUE A -->
+        <div class="section-header">BLOQUE A: FOR INDEXADO</div>
+        <div class="section-desc">Para resolver los ejercicios de este bloque se debe utilizar un bucle indexado <span class="code-inline">for (int i = 0; i &lt; array.length; i++)</span>.</div>
+
+        <!-- Ejercicio 1 -->
+        <div class="exercise-card">
+            <div class="exercise-header">Ejercicio 1: batuElementuak</div>
+            <div class="exercise-signature">public static int batuElementuak(int[] zenbakiak)</div>
+            <div class="exercise-description">Calcula la suma de todos los elementos de un array de números enteros.</div>
+            <table class="details-table">
+                <tr>
+                    <th>Parámetros</th>
+                    <td><span class="code-inline">int[] zenbakiak</span>: el array de int que se desea analizar.</td>
+                </tr>
+                <tr>
+                    <th>Resultado</th>
+                    <td>La suma total de todos los elementos. <span class="code-inline">0</span> si el array es nulo o está vacío.</td>
+                </tr>
+                <tr>
+                    <th>Ejemplos</th>
+                    <td>
+                        <ul>
+                            <li><span class="code-inline">batuElementuak(new int[]{1, 2, 3, 4, 5})</span> &rarr; <span class="code-inline">15</span></li>
+                            <li><span class="code-inline">batuElementuak(new int[]{-2, 5, -3})</span> &rarr; <span class="code-inline">0</span></li>
+                            <li><span class="code-inline">batuElementuak(new int[]{})</span> &rarr; <span class="code-inline">0</span></li>
+                            <li><span class="code-inline">batuElementuak(null)</span> &rarr; <span class="code-inline">0</span></li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Ejercicio 2 -->
+        <div class="exercise-card">
+            <div class="exercise-header">Ejercicio 2: batezBestekoaKalkulatu</div>
+            <div class="exercise-signature">public static double batezBestekoaKalkulatu(double[] notak)</div>
+            <div class="exercise-description">Calcula la media aritmética de las calificaciones (double).</div>
+            <table class="details-table">
+                <tr>
+                    <th>Parámetros</th>
+                    <td><span class="code-inline">double[] notak</span>: array de double con las calificaciones.</td>
+                </tr>
+                <tr>
+                    <th>Resultado</th>
+                    <td>La media aritmética de las notas. <span class="code-inline">-1.0</span> si el array es nulo o está vacío.</td>
+                </tr>
+                <tr>
+                    <th>Ejemplos</th>
+                    <td>
+                        <ul>
+                            <li><span class="code-inline">batezBestekoaKalkulatu(new double[]{5.0, 7.0, 9.0})</span> &rarr; <span class="code-inline">7.0</span></li>
+                            <li><span class="code-inline">batezBestekoaKalkulatu(new double[]{10.0})</span> &rarr; <span class="code-inline">10.0</span></li>
+                            <li><span class="code-inline">batezBestekoaKalkulatu(new double me[]{})</span> &rarr; <span class="code-inline">-1.0</span></li>
+                            <li><span class="code-inline">batezBestekoaKalkulatu(null)</span> &rarr; <span class="code-inline">-1.0</span></li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Ejercicio 3 -->
+        <div class="exercise-card">
+            <div class="exercise-header">Ejercicio 3: handienaAurkitu</div>
+            <div class="exercise-signature">public static int handienaAurkitu(int[] zenbakiak)</div>
+            <div class="exercise-description">Encuentra el valor máximo en un array.</div>
+            <table class="details-table">
+                <tr>
+                    <th>Parámetros</th>
+                    <td><span class="code-inline">int[] zenbakiak</span>: array de números enteros.</td>
+                </tr>
+                <tr>
+                    <th>Resultado</th>
+                    <td>El valor más grande del array. <span class="code-inline">Integer.MIN_VALUE</span> (-2147483648) si el array es nulo o está vacío.</td>
+                </tr>
+                <tr>
+                    <th>Ejemplos</th>
+                    <td>
+                        <ul>
+                            <li><span class="code-inline">handienaAurkitu(new int[]{3, 8, 2, 11, 4})</span> &rarr; <span class="code-inline">11</span></li>
+                            <li><span class="code-inline">handienaAurkitu(new int[]{-10, -5, -20})</span> &rarr; <span class="code-inline">-5</span></li>
+                            <li><span class="code-inline">handienaAurkitu(new int[]{})</span> &rarr; <span class="code-inline">-2147483648</span></li>
+                            <li><span class="code-inline">handienaAurkitu(null)</span> &rarr; <span class="code-inline">-2147483648</span></li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Ejercicio 4 -->
+        <div class="exercise-card">
+            <div class="exercise-header">Ejercicio 4: gutxienekoaAurkitu</div>
+            <div class="exercise-signature">public static int gutxienekoaAurkitu(int[] zenbakiak)</div>
+            <div class="exercise-description">Encuentra el valor mínimo en un array.</div>
+            <table class="details-table">
+                <tr>
+                    <th>Parámetros</th>
+                    <td><span class="code-inline">int[] zenbakiak</span>: array de números enteros.</td>
+                </tr>
+                <tr>
+                    <th>Resultado</th>
+                    <td>El valor más pequeño del array. <span class="code-inline">Integer.MAX_VALUE</span> (2147483647) si el array es nulo o está vacío.</td>
+                </tr>
+                <tr>
+                    <th>Ejemplos</th>
+                    <td>
+                        <ul>
+                            <li><span class="code-inline">gutxienekoaAurkitu(new int[]{3, 8, 2, 11, 4})</span> &rarr; <span class="code-inline">2</span></li>
+                            <li><span class="code-inline">gutxienekoaAurkitu(new int[]{-10, -5, -20})</span> &rarr; <span class="code-inline">-20</span></li>
+                            <li><span class="code-inline">gutxienekoaAurkitu(new int[]{})</span> &rarr; <span class="code-inline">2147483647</span></li>
+                            <li><span class="code-inline">gutxienekoaAurkitu(null)</span> &rarr; <span class="code-inline">2147483647</span></li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Ejercicio 5 -->
+        <div class="exercise-card">
+            <div class="exercise-header">Ejercicio 5: zenbatuNegatiboak</div>
+            <div class="exercise-signature">public static int zenbatuNegatiboak(int[] zenbakiak)</div>
+            <div class="exercise-description">Cuenta cuántos números negativos (&lt; 0) hay en el array.</div>
+            <table class="details-table">
+                <tr>
+                    <th>Parámetros</th>
+                    <td><span class="code-inline">int[] zenbakiak</span>: array de números enteros.</td>
+                </tr>
+                <tr>
+                    <th>Resultado</th>
+                    <td>La cantidad de números negativos. <span class="code-inline">0</span> si el array es nulo/vacío o no hay negativos.</td>
+                </tr>
+                <tr>
+                    <th>Ejemplos</th>
+                    <td>
+                        <ul>
+                            <li><span class="code-inline">zenbatuNegatiboak(new int[]{1, -2, 3, -4, -5})</span> &rarr; <span class="code-inline">3</span></li>
+                            <li><span class="code-inline">zenbatuNegatiboak(new int[]{1, 2, 3})</span> &rarr; <span class="code-inline">0</span></li>
+                            <li><span class="code-inline">zenbatuNegatiboak(null)</span> &rarr; <span class="code-inline">0</span></li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Ejercicio 6 -->
+        <div class="exercise-card">
+            <div class="exercise-header">Ejercicio 6: zenbatuPositiboak</div>
+            <div class="exercise-signature">public static int zenbatuPositiboak(int[] zenbakiak)</div>
+            <div class="exercise-description">Cuenta cuántos números positivos (&gt; 0) hay en el array (el 0 no se considera positivo).</div>
+            <table class="details-table">
+                <tr>
+                    <th>Parámetros</th>
+                    <td><span class="code-inline">int[] zenbakiak</span>: array de números enteros.</td>
+                </tr>
+                <tr>
+                    <th>Resultado</th>
+                    <td>La cantidad de números positivos. <span class="code-inline">0</span> si el array es nulo/vacío o no hay positivos.</td>
+                </tr>
+                <tr>
+                    <th>Ejemplos</th>
+                    <td>
+                        <ul>
+                            <li><span class="code-inline">zenbatuPositiboak(new int[]{1, -2, 3, 0, 5})</span> &rarr; <span class="code-inline">3</span></li>
+                            <li><span class="code-inline">zenbatuPositiboak(new int[]{-1, -2, 0})</span> &rarr; <span class="code-inline">0</span></li>
+                            <li><span class="code-inline">zenbatuPositiboak(null)</span> &rarr; <span class="code-inline">0</span></li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Ejercicio 7 -->
+        <div class="exercise-card">
+            <div class="exercise-header">Ejercicio 7: kenduElementuak</div>
+            <div class="exercise-signature">public static int kenduElementuak(int[] zenbakiak)</div>
+            <div class="exercise-description">Resta secuencialmente todos los demás elementos al primer elemento.</div>
+            <table class="details-table">
+                <tr>
+                    <th>Parámetros</th>
+                    <td><span class="code-inline">int[] zenbakiak</span>: array de números enteros.</td>
+                </tr>
+                <tr>
+                    <th>Resultado</th>
+                    <td>El resultado de la resta. <span class="code-inline">0</span> si el array es nulo o está vacío.</td>
+                </tr>
+                <tr>
+                    <th>Ejemplos</th>
+                    <td>
+                        <ul>
+                            <li><span class="code-inline">kenduElementuak(new int[]{10, 2, 3})</span> &rarr; <span class="code-inline">5</span> (10 - 2 - 3)</li>
+                            <li><span class="code-inline">kenduElementuak(new int[]{7})</span> &rarr; <span class="code-inline">7</span></li>
+                            <li><span class="code-inline">kenduElementuak(new int[]{})</span> &rarr; <span class="code-inline">0</span></li>
+                            <li><span class="code-inline">kenduElementuak(null)</span> &rarr; <span class="code-inline">0</span></li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Ejercicio 8 -->
+        <div class="exercise-card">
+            <div class="exercise-header">Ejercicio 8: batuIndizeBikoitiak</div>
+            <div class="exercise-signature">public static int batuIndizeBikoitiak(int[] zenbakiak)</div>
+            <div class="exercise-description">Suma solo los números que están en índices pares (0, 2, 4...).</div>
+            <table class="details-table">
+                <tr>
+                    <th>Parámetros</th>
+                    <td><span class="code-inline">int[] zenbakiak</span>: array de números enteros.</td>
+                </tr>
+                <tr>
+                    <th>Resultado</th>
+                    <td>La suma de los valores en los índices pares. <span class="code-inline">0</span> si el array es nulo o está vacío.</td>
+                </tr>
+                <tr>
+                    <th>Ejemplos</th>
+                    <td>
+                        <ul>
+                            <li><span class="code-inline">batuIndizeBikoitiak(new int[]{10, 20, 30, 40, 50})</span> &rarr; <span class="code-inline">90</span> (10 + 30 + 50)</li>
+                            <li><span class="code-inline">batuIndizeBikoitiak(new int[]{5})</span> &rarr; <span class="code-inline">5</span></li>
+                            <li><span class="code-inline">batuIndizeBikoitiak(null)</span> &rarr; <span class="code-inline">0</span></li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Ejercicio 9 -->
+        <div class="exercise-card">
+            <div class="exercise-header">Ejercicio 9: bihurtuNegatiboIndizeBakoitiak</div>
+            <div class="exercise-signature">public static int[] bihurtuNegatiboIndizeBakoitiak(int[] zenbakiak)</div>
+            <div class="exercise-description">Devuelve un nuevo array convirtiendo en números negativos todos los valores de los índices impares (1, 3, 5...).</div>
+            <table class="details-table">
+                <tr>
+                    <th>Parámetros</th>
+                    <td><span class="code-inline">int[] zenbakiak</span>: array original de int.</td>
+                </tr>
+                <tr>
+                    <th>Resultado</th>
+                    <td>Un nuevo array con los valores modificados. <span class="code-inline">new int[0]</span> si el array es nulo.</td>
+                </tr>
+                <tr>
+                    <th>Ejemplos</th>
+                    <td>
+                        <ul>
+                            <li><span class="code-inline">bihurtuNegatiboIndizeBakoitiak(new int[]{5, 4, 3, 2})</span> &rarr; <span class="code-inline">{5, -4, 3, -2}</span></li>
+                            <li><span class="code-inline">bihurtuNegatiboIndizeBakoitiak(new int[]{5, -4, 3, -2})</span> &rarr; <span class="code-inline">{5, -4, 3, -2}</span></li>
+                            <li><span class="code-inline">bihurtuNegatiboIndizeBakoitiak(null)</span> &rarr; <span class="code-inline">{}</span></li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Ejercicio 10 -->
+        <div class="exercise-card">
+            <div class="exercise-header">Ejercicio 10: lortuTamaina</div>
+            <div class="exercise-signature">public static int lortuTamaina(int[] zenbakiak)</div>
+            <div class="exercise-description">Devuelve el tamaño del array (número de elementos).</div>
+            <table class="details-table">
+                <tr>
+                    <th>Parámetros</th>
+                    <td><span class="code-inline">int[] zenbakiak</span>: array de int.</td>
+                </tr>
+                <tr>
+                    <th>Resultado</th>
+                    <td>La longitud del array. <span class="code-inline">0</span> si el array es nulo.</td>
+                </tr>
+                <tr>
+                    <th>Ejemplos</th>
+                    <td>
+                        <ul>
+                            <li><span class="code-inline">lortuTamaina(new int[]{1, 2, 3, 4})</span> &rarr; <span class="code-inline">4</span></li>
+                            <li><span class="code-inline">lortuTamaina(new int[]{})</span> &rarr; <span class="code-inline">0</span></li>
+                            <li><span class="code-inline">lortuTamaina(null)</span> &rarr; <span class="code-inline">0</span></li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Ejercicio 11 -->
+        <div class="exercise-card">
+            <div class="exercise-header">Ejercicio 11: elementuaDago</div>
+            <div class="exercise-signature">public static boolean elementuaDago(String[] hitzak, String bilatutakoa)</div>
+            <div class="exercise-description">Busca si un texto específico se encuentra dentro del array.</div>
+            <table class="details-table">
+                <tr>
+                    <th>Parámetros</th>
+                    <td>
+                        <span class="code-inline">String[] hitzak</span>: array de cadenas (String).<br>
+                        <span class="code-inline">String bilatutakoa</span>: el texto que se desea buscar.
+                    </td>
+                </tr>
+                <tr>
+                    <th>Resultado</th>
+                    <td><span class="code-inline">true</span> si el texto está en el array; <span class="code-inline">false</span> en caso contrario o si los valores son null.</td>
+                </tr>
+                <tr>
+                    <th>Ejemplos</th>
+                    <td>
+                        <ul>
+                            <li><span class="code-inline">elementuaDago(new String[]{"Java", "Python", "C++"}, "Python")</span> &rarr; <span class="code-inline">true</span></li>
+                            <li><span class="code-inline">elementuaDago(new String[]{"Java", "Python", "C++"}, "PHP")</span> &rarr; <span class="code-inline">false</span></li>
+                            <li><span class="code-inline">elementuaDago(null, "Java")</span> &rarr; <span class="code-inline">false</span></li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Ejercicio 12 -->
+        <div class="exercise-card">
+            <div class="exercise-header">Ejercicio 12: zenbatuBikoitiak</div>
+            <div class="exercise-signature">public static int zenbatuBikoitiak(int[] zenbakiak)</div>
+            <div class="exercise-description">Cuenta cuántos números pares hay en un array.</div>
+            <table class="details-table">
+                <tr>
+                    <th>Parámetros</th>
+                    <td><span class="code-inline">int[] zenbakiak</span>: array de números enteros.</td>
+                </tr>
+                <tr>
+                    <th>Resultado</th>
+                    <td>La cantidad de números pares. <span class="code-inline">0</span> si el array es nulo o no hay pares.</td>
+                </tr>
+                <tr>
+                    <th>Ejemplos</th>
+                    <td>
+                        <ul>
+                            <li><span class="code-inline">zenbatuBikoitiak(new int[]{1, 2, 3, 4, 6, 7})</span> &rarr; <span class="code-inline">3</span></li>
+                            <li><span class="code-inline">zenbatuBikoitiak(new int[]{1, 3, 5})</span> &rarr; <span class="code-inline">0</span></li>
+                            <li><span class="code-inline">zenbatuBikoitiak(null)</span> &rarr; <span class="code-inline">0</span></li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Ejercicio 13 -->
+        <div class="exercise-card">
+            <div class="exercise-header">Ejercicio 13: alderantzizkoArraya</div>
+            <div class="exercise-signature">public static int[] alderantzizkoArraya(int[] zenbakiak)</div>
+            <div class="exercise-description">Crea un nuevo array colocando los elementos del original en orden inverso.</div>
+            <table class="details-table">
+                <tr>
+                    <th>Parámetros</th>
+                    <td><span class="code-inline">int[] zenbakiak</span>: array original de int.</td>
+                </tr>
+                <tr>
+                    <th>Resultado</th>
+                    <td>Un nuevo array con los elementos invertidos. <span class="code-inline">new int[0]</span> si el array es nulo.</td>
+                </tr>
+                <tr>
+                    <th>Ejemplos</th>
+                    <td>
+                        <ul>
+                            <li><span class="code-inline">alderantzizkoArraya(new int[]{1, 2, 3, 4})</span> &rarr; <span class="code-inline">{4, 3, 2, 1}</span></li>
+                            <li><span class="code-inline">alderantzizkoArraya(new int[]{7})</span> &rarr; <span class="code-inline">{7}</span></li>
+                            <li><span class="code-inline">alderantzizkoArraya(null)</span> &rarr; <span class="code-inline">{}</span></li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Ejercicio 14 -->
+        <div class="exercise-card">
+            <div class="exercise-header">Ejercicio 14: gehituElementua</div>
+            <div class="exercise-signature">public static int[] gehituElementua(int[] zenbakiak, int berria)</div>
+            <div class="exercise-description">Crea un nuevo array añadiendo un nuevo valor entero al final del original.</div>
+            <table class="details-table">
+                <tr>
+                    <th>Parámetros</th>
+                    <td>
+                        <span class="code-inline">int[] zenbakiak</span>: array original.<br>
+                        <span class="code-inline">int berria</span>: nuevo valor entero que se desea añadir.
+                    </td>
+                </tr>
+                <tr>
+                    <th>Resultado</th>
+                    <td>Un nuevo array con un elemento más. <span class="code-inline">{berria}</span> si el original es nulo.</td>
+                </tr>
+                <tr>
+                    <th>Ejemplos</th>
+                    <td>
+                        <ul>
+                            <li><span class="code-inline">gehituElementua(new int[]{1, 2}, 3)</span> &rarr; <span class="code-inline">{1, 2, 3}</span></li>
+                            <li><span class="code-inline">gehituElementua(new int[]{}, 5)</span> &rarr; <span class="code-inline">{5}</span></li>
+                            <li><span class="code-inline">gehituElementua(null, 5)</span> &rarr; <span class="code-inline">{5}</span></li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Ejercicio 15 -->
+        <div class="exercise-card">
+            <div class="exercise-header">Ejercicio 15: kenduIndizekoElementua</div>
+            <div class="exercise-signature">public static int[] kenduIndizekoElementua(int[] zenbakiak, int indizea)</div>
+            <div class="exercise-description">Crea un nuevo array eliminando el elemento que se encuentra en el índice indicado.</div>
+            <table class="details-table">
+                <tr>
+                    <th>Parámetros</th>
+                    <td>
+                        <span class="code-inline">int[] zenbakiak</span>: array original.<br>
+                        <span class="code-inline">int indizea</span>: posición que se desea eliminar (empezando desde 0).
+                    </td>
+                </tr>
+                <tr>
+                    <th>Resultado</th>
+                    <td>Un nuevo array con un elemento menos. Copia del original si el índice es incorrecto.</td>
+                </tr>
+                <tr>
+                    <th>Ejemplos</th>
+                    <td>
+                        <ul>
+                            <li><span class="code-inline">kenduIndizekoElementua(new int[]{10, 20, 30, 40}, 1)</span> &rarr; <span class="code-inline">{10, 30, 40}</span></li>
+                            <li><span class="code-inline">kenduIndizekoElementua(new int[]{10, 20}, 5)</span> &rarr; <span class="code-inline">{10, 20}</span></li>
+                            <li><span class="code-inline">kenduIndizekoElementua(null, 0)</span> &rarr; <span class="code-inline">{}</span></li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- BLOQUE B -->
+        <div class="section-header">BLOQUE B: BUCLE WHILE</div>
+        <div class="section-desc">Para resolver los ejercicios de este bloque se debe utilizar un bucle <span class="code-inline">while</span>.</div>
+
+        <!-- Ejercicio 16 -->
+        <div class="exercise-card">
+            <div class="exercise-header">Ejercicio 16: lehenNegatiboarenIndizea</div>
+            <div class="exercise-signature">public static int lehenNegatiboarenIndizea(int[] zenbakiak)</div>
+            <div class="exercise-description">Encuentra el índice del primer número negativo en el array utilizando <span class="code-inline">while</span>.</div>
+            <table class="details-table">
+                <tr>
+                    <th>Parámetros</th>
+                    <td><span class="code-inline">int[] zenbakiak</span>: array de números enteros.</td>
+                </tr>
+                <tr>
+                    <th>Resultado</th>
+                    <td>El índice del primer número negativo. <span class="code-inline">-1</span> si no hay negativos o si el array es nulo.</td>
+                </tr>
+                <tr>
+                    <th>Ejemplos</th>
+                    <td>
+                        <ul>
+                            <li><span class="code-inline">lehenNegatiboarenIndizea(new int[]{5, 8, -3, 10, -2})</span> &rarr; <span class="code-inline">2</span></li>
+                            <li><span class="code-inline">lehenNegatiboarenIndizea(new int[]{1, 2, 3})</span> &rarr; <span class="code-inline">-1</span></li>
+                            <li><span class="code-inline">lehenNegatiboarenIndizea(null)</span> &rarr; <span class="code-inline">-1</span></li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Ejercicio 17 -->
+        <div class="exercise-card">
+            <div class="exercise-header">Ejercicio 17: batuMugaraArte</div>
+            <div class="exercise-signature">public static int batuMugaraArte(int[] zenbakiak, int muga)</div>
+            <div class="exercise-description">Suma números desde el primer elemento hasta alcanzar un límite (sin superarlo) utilizando <span class="code-inline">while</span>.</div>
+            <table class="details-table">
+                <tr>
+                    <th>Parámetros</th>
+                    <td>
+                        <span class="code-inline">int[] zenbakiak</span>: array de números enteros.<br>
+                        <span class="code-inline">int muga</span>: valor máximo que la suma no puede superar.
+                    </td>
+                </tr>
+                <tr>
+                    <th>Resultado</th>
+                    <td>La suma máxima obtenida. <span class="code-inline">0</span> si el primer elemento &gt; muga o si el array es nulo.</td>
+                </tr>
+                <tr>
+                    <th>Ejemplos</th>
+                    <td>
+                        <ul>
+                            <li><span class="code-inline">batuMugaraArte(new int[]{10, 20, 15, 30}, 40)</span> &rarr; <span class="code-inline">35</span> (10 + 20 &lt;= 40; al ser 10 + 20 + 15 &gt; 40 se detiene)</li>
+                            <li><span class="code-inline">batuMugaraArte(new int[]{50, 10}, 40)</span> &rarr; <span class="code-inline">0</span> (como 50 &gt; 40 no puede sumar ninguno)</li>
+                            <li><span class="code-inline">batuMugaraArte(null, 40)</span> &rarr; <span class="code-inline">0</span></li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Ejercicio 18 -->
+        <div class="exercise-card">
+            <div class="exercise-header">Ejercicio 18: ordenatutaDago</div>
+            <div class="exercise-signature">public static boolean ordenatutaDago(int[] zenbakiak)</div>
+            <div class="exercise-description">Comprueba si un array está ordenado en orden ascendente utilizando <span class="code-inline">while</span>.</div>
+            <table class="details-table">
+                <tr>
+                    <th>Parámetros</th>
+                    <td><span class="code-inline">int[] zenbakiak</span>: el array de int que se desea analizar.</td>
+                </tr>
+                <tr>
+                    <th>Resultado</th>
+                    <td><span class="code-inline">true</span> si está en orden ascendente o si tiene 0-1 elementos; <span class="code-inline">false</span> si está desordenado o es nulo.</td>
+                </tr>
+                <tr>
+                    <th>Ejemplos</th>
+                    <td>
+                        <ul>
+                            <li><span class="code-inline">ordenatutaDago(new int[]{1, 3, 5, 7, 9})</span> &rarr; <span class="code-inline">true</span></li>
+                            <li><span class="code-inline">ordenatutaDago(new int[]{1, 5, 3, 7})</span> &rarr; <span class="code-inline">false</span></li>
+                            <li><span class="code-inline">ordenatutaDago(new int[]{4})</span> &rarr; <span class="code-inline">true</span></li>
+                            <li><span class="code-inline">ordenatutaDago(null)</span> &rarr; <span class="code-inline">false</span></li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Ejercicio 19 -->
+        <div class="exercise-card">
+            <div class="exercise-header">Ejercicio 19: palindromoaDa</div>
+            <div class="exercise-signature">public static boolean palindromoaDa(int[] zenbakiak)</div>
+            <div class="exercise-description">Analiza si un array es palíndromo utilizando <span class="code-inline">while</span> combinando dos punteros.</div>
+            <table class="details-table">
+                <tr>
+                    <th>Parámetros</th>
+                    <td><span class="code-inline">int[] zenbakiak</span>: array de int.</td>
+                </tr>
+                <tr>
+                    <th>Resultado</th>
+                    <td><span class="code-inline">true</span> si es palíndromo; <span class="code-inline">false</span> si no lo es o si es nulo.</td>
+                </tr>
+                <tr>
+                    <th>Ejemplos</th>
+                    <td>
+                        <ul>
+                            <li><span class="code-inline">palindromoaDa(new int[]{1, 2, 3, 2, 1})</span> &rarr; <span class="code-inline">true</span></li>
+                            <li><span class="code-inline">palindromoaDa(new int[]{1, 2, 2, 1})</span> &rarr; <span class="code-inline">true</span></li>
+                            <li><span class="code-inline">palindromoaDa(new int[]{1, 2, 3, 4})</span> &rarr; <span class="code-inline">false</span></li>
+                            <li><span class="code-inline">palindromoaDa(null)</span> &rarr; <span class="code-inline">false</span></li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Ejercicio 20 -->
+        <div class="exercise-card">
+            <div class="exercise-header">Ejercicio 20: biAgerraldienArtekoDistantzia</div>
+            <div class="exercise-signature">public static int biAgerraldienArtekoDistantzia(int[] zenbakiak, int target)</div>
+            <div class="exercise-description">Calcula la distancia (diferencia de índices) entre las dos primeras apariciones del valor target utilizando <span class="code-inline">while</span>.</div>
+            <table class="details-table">
+                <tr>
+                    <th>Parámetros</th>
+                    <td>
+                        <span class="code-inline">int[] zenbakiak</span>: el array que se desea analizar.<br>
+                        <span class="code-inline">int target</span>: el valor que se desea buscar.
+                    </td>
+                </tr>
+                <tr>
+                    <th>Resultado</th>
+                    <td>La distancia entre las dos apariciones (índice2 - índice1). <span class="code-inline">-1</span> si no aparece al menos dos veces.</td>
+                </tr>
+                <tr>
+                    <th>Ejemplos</th>
+                    <td>
+                        <ul>
+                            <li><span class="code-inline">biAgerraldienArtekoDistantzia(new int[]{4, 7, 2, 7, 9, 7}, 7)</span> &rarr; <span class="code-inline">2</span> (3 - 1 = 2)</li>
+                            <li><span class="code-inline">biAgerraldienArtekoDistantzia(new int[]{1, 5, 3}, 5)</span> &rarr; <span class="code-inline">-1</span> (solo aparece una vez)</li>
+                            <li><span class="code-inline">biAgerraldienArtekoDistantzia(new int[]{3, 3}, 3)</span> &rarr; <span class="code-inline">1</span> (1 - 0 = 1)</li>
+                            <li><span class="code-inline">biAgerraldienArtekoDistantzia(null, 7)</span> &rarr; <span class="code-inline">-1</span></li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+</body>
+</html>

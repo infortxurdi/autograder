@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="eu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Programazio Ariketak - OOP (Objektuetara Bideratutako Programazioa)</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+    <div class="container">
+        <!-- HEADER -->
+        <div class="header-container">
+            <div class="header-title">Java Programazio Ariketak</div>
+            <div class="header-subtitle">Objektuetara Bideratutako Programazioa (POO / OOP)</div>
+            <div class="meta-info">
+                <div><strong>Paketea:</strong> <span class="code-inline" style="color: #ffffff; background: #2b6cb0;">poo</span></div>
+                <div><strong>Klasea:</strong> <span class="code-inline" style="color: #ffffff; background: #2b6cb0;">Ariketak</span></div>
+            </div>
+        </div>
+
+        <!-- JARRAIBIDEAK -->
+        <div class="instructions-box">
+            <div class="instructions-title">📋 Jarraibideak eta Klase Laguntzaileak</div>
+            <p>Osatu <span class="code-inline">poo.Ariketak</span> klaseko metodoen logika Javadoc iruzkinekin bat etorriz. Ariketa hauetan klase laguntzaile hauek erabili beharko dituzu (dadaizkizun barne-klaseak):</p>
+            <div class="download-area"><a href="/eus/zips/poo.zip" class="download-btn" download> DESKARGATU </a></div>
+            <ul>
+                <li><span class="code-inline">Taxi</span>: <span class="code-inline">matrikula</span>, <span class="code-inline">udalerria</span>, <span class="code-inline">motoreMota</span> (0=ezezaguna, 1=diesela, 2=gasolina) eta <span class="code-inline">probintzia</span> ("Bizkaia").</li>
+                <li><span class="code-inline">Kotxea</span>: <span class="code-inline">abiadura</span> atributua kudeatzeko metodoak (<span class="code-inline">bizkortu</span>, <span class="code-inline">geldotu</span>).</li>
+                <li><span class="code-inline">Pertsona</span>: <span class="code-inline">izena</span>, <span class="code-inline">abizenak</span>, <span class="code-inline">adina</span> eta <span class="code-inline">getIzenOsoa()</span>.</li>
+                <li><span class="code-inline">Email</span> eta <span class="code-inline">Postontzia</span>: posta elektronikoak kudeatzeko klaseak.</li>
+                <li><span class="code-inline">Ikasgela</span>: pertsona/ikasle taldeak kudeatzeko klasea.</li>
+            </ul>
+        </div>
+
+        <!-- 0. ARIKETA: RESUELTO -->
+        <div class="section-header">0. ARIKETA: ADIBIDE EBAZIA</div>
+        <div class="section-desc">Adibide honetan ikus dezakezu nola sortu objektu bat eta nola erabili bere metodoak.</div>
+
+        <div class="exercise-card">
+            <div class="exercise-header">0. Ariketa: taxiAdibidea (Ebatzita / Resuelto)</div>
+            <div class="exercise-signature">public static String taxiAdibidea(String matrikula, String udalerria)</div>
+            <div class="exercise-description">Taxi objektu bat sortzen du, parametroak ezartzen dizkio setter bidez eta deskribapen testua bueltatzen du getter-ak erabiliz.</div>
+            <table class="details-table">
+                <tr>
+                    <th>Parametroak</th>
+                    <td>
+                        <span class="code-inline">String matrikula</span>: autoaren matrikula.<br>
+                        <span class="code-inline">String udalerria</span>: taxiak lan egiten duen udalerria.
+                    </td>
+                </tr>
+                <tr>
+                    <th>Emaitza</th>
+                    <td><span class="code-inline">"Taxi [Matrikula: {matrikula}, Udalerria: {udalerria}]"</span></td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- A BLOKEA -->
+        <div class="section-header">A BLOKEA: Klase Oinarrizkoak eta Atributuak</div>
+        <div class="section-desc">Objektuak instanziatzea, atributuak ezartzea (setter/getter) eta bihurketak egitea.</div>
+
+        <!-- Ariketa 1 -->
+        <div class="exercise-card">
+            <div class="exercise-header">1. Ariketa: taxiSortuEtaKonfiguratu</div>
+            <div class="exercise-signature">public static String taxiSortuEtaKonfiguratu(String matrikula, String udalerria, int motoreMota)</div>
+            <div class="exercise-description">Taxi objektu bat sortu eta emandako datuekin konfiguratzen du.</div>
+            <table class="details-table">
+                <tr>
+                    <th>Parametroak</th>
+                    <td>
+                        <span class="code-inline">String matrikula</span>: autoaren matrikula.<br>
+                        <span class="code-inline">String udalerria</span>: lan egiten duen udalerria.<br>
+                        <span class="code-inline">int motoreMota</span>: motor mota (0 = ezezaguna, 1 = diesela, 2 = gasolina).
+                    </td>
+                </tr>
+                <tr>
+                    <th>Emaitza</th>
+                    <td><span class="code-inline">"Taxi [Matrikula: {matrikula}, Udalerria: {udalerria}, Motorra: {motoreMota}, Probintzia: Bizkaia]"</span></td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Ariketa 2 -->
+        <div class="exercise-card">
+            <div class="exercise-header">2. Ariketa: kotxeaBizkortuEtaGeldotu</div>
+            <div class="exercise-signature">public static int kotxeaBizkortuEtaGeldotu(int hasierakoAbiadura, int aldaketa)</div>
+            <div class="exercise-description">Hasierako abiadura duen Kotxea sortu eta aldaketa aplikatzen dio (<span class="code-inline">bizkortu</span> aldaketa &gt; 0 bada, edo <span class="code-inline">geldotu</span> aldaketa &lt; 0 bada). Abiadura ezin da 0 baino txikiagoa izan.</div>
+            <table class="details-table">
+                <tr>
+                    <th>Parametroak</th>
+                    <td>
+                        <span class="code-inline">int hasierakoAbiadura</span>: kotxearen abiadura hasieran.<br>
+                        <span class="code-inline">int aldaketa</span>: gehituko edo gutxituko den abiadura kopurua.
+                    </td>
+                </tr>
+                <tr>
+                    <th>Emaitza</th>
+                    <td>Eguneratutako abiadura osoa (<span class="code-inline">int</span>).</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Ariketa 3 -->
+        <div class="exercise-card">
+            <div class="exercise-header">3. Ariketa: celsiusToFahrenheit</div>
+            <div class="exercise-signature">public static double celsiusToFahrenheit(double celsius)</div>
+            <div class="exercise-description">Celsius gradutan dagoen tenperatura Fahrenheit gradutara bihurtzen du.</div>
+            <table class="details-table">
+                <tr>
+                    <th>Parametroak</th>
+                    <td><span class="code-inline">double celsius</span>: tenperatura Celsius gradutan.</td>
+                </tr>
+                <tr>
+                    <th>Formula & Emaitza</th>
+                    <td>Formula: <span class="code-inline">(celsius * 9.0 / 5.0) + 32.0</span> &rarr; Fahrenheit tenperatura (<span class="code-inline">double</span>).</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Ariketa 4 -->
+        <div class="exercise-card">
+            <div class="exercise-header">4. Ariketa: fahrenheitToCelsius</div>
+            <div class="exercise-signature">public static double fahrenheitToCelsius(double fahrenheit)</div>
+            <div class="exercise-description">Fahrenheit gradutan dagoen tenperatura Celsius gradutara bihurtzen du.</div>
+            <table class="details-table">
+                <tr>
+                    <th>Parametroak</th>
+                    <td><span class="code-inline">double fahrenheit</span>: tenperatura Fahrenheit gradutan.</td>
+                </tr>
+                <tr>
+                    <th>Formula & Emaitza</th>
+                    <td>Formula: <span class="code-inline">(fahrenheit - 32.0) * 5.0 / 9.0</span> &rarr; Celsius tenperatura (<span class="code-inline">double</span>).</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- B BLOKEA -->
+        <div class="section-header">B BLOKEA: Pertsona Klasea (IMC eta Adina)</div>
+        <div class="section-desc">Objektuen arteko konparaketak eta kalkulu espezifikoak.</div>
+
+        <!-- Ariketa 5 -->
+        <div class="exercise-card">
+            <div class="exercise-header">5. Ariketa: pertsonaZaharrena</div>
+            <div class="exercise-signature">public static String pertsonaZaharrena(Pertsona p1, Pertsona p2)</div>
+            <div class="exercise-description">Bi pertsona jasotzen ditu eta zaharrena denaren izen-abizen osoa bueltatzen du. Berdinak badira, lehenengoa bueltatu.</div>
+            <table class="details-table">
+                <tr>
+                    <th>Parametroak</th>
+                    <td>
+                        <span class="code-inline">Pertsona p1</span>: lehenengo Pertsona objektua.<br>
+                        <span class="code-inline">Pertsona p2</span>: bigarren Pertsona objektua.
+                    </td>
+                </tr>
+                <tr>
+                    <th>Emaitza</th>
+                    <td>Pertsona zaharrenaren izen osoa (<span class="code-inline">"Izena Abizenak"</span>).</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Ariketa 6 -->
+        <div class="exercise-card">
+            <div class="exercise-header">6. Ariketa: kalkulatuIMC</div>
+            <div class="exercise-signature">public static int kalkulatuIMC(double pisua, double altuera)</div>
+            <div class="exercise-description">Gorputz Masaren Indizea (GMI/IMC) kalkulatzen du: <span class="code-inline">pisua (kg) / altuera^2 (m)</span>.</div>
+            <table class="details-table">
+                <tr>
+                    <th>Parametroak</th>
+                    <td>
+                        <span class="code-inline">double pisua</span>: pertsonaren pisua kg-tan.<br>
+                        <span class="code-inline">double altuera</span>: pertsonaren altuera metrotan.
+                    </td>
+                </tr>
+                <tr>
+                    <th>Emaitza Posibleak</th>
+                    <td>
+                        <ul>
+                            <li><span class="code-inline">-1</span> &rarr; IMC &lt; 20.0 denean (pisu idealaren azpitik).</li>
+                            <li><span class="code-inline">0</span> &rarr; 20.0 &lt;= IMC &lt;= 25.0 denean (pisu idealean).</li>
+                            <li><span class="code-inline">1</span> &rarr; IMC &gt; 25.0 denean (gehiegizko pisua).</li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Ariketa 7 -->
+        <div class="exercise-card">
+            <div class="exercise-header">7. Ariketa: adinezNagusikoaDa</div>
+            <div class="exercise-signature">public static boolean adinezNagusikoaDa(int adina)</div>
+            <div class="exercise-description">Pertsona baten adina jasota, adin nagusikoa den ala ez zehazten du.</div>
+            <table class="details-table">
+                <tr>
+                    <th>Parametroak</th>
+                    <td><span class="code-inline">int adina</span>: pertsonaren adina urteetan.</td>
+                </tr>
+                <tr>
+                    <th>Emaitza</th>
+                    <td><span class="code-inline">true</span> adina &gt;= 18 bada; <span class="code-inline">false</span> bestela.</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- C BLOKEA -->
+        <div class="section-header">C BLOKEA: Klaseen Arteko Interakzioak</div>
+        <div class="section-desc">Objektuak beste objektuen bildumetan (List/ArrayList) integratzea eta kudeatzea.</div>
+
+        <!-- Ariketa 8 -->
+        <div class="exercise-card">
+            <div class="exercise-header">8. Ariketa: emailSortuEtaBistaratu</div>
+            <div class="exercise-signature">public static String emailSortuEtaBistaratu(String norentzat, String asuntua, String gorputza)</div>
+            <div class="exercise-description">Email baten atributuak jasota, deskribapen testu bat bueltatzen du.</div>
+            <table class="details-table">
+                <tr>
+                    <th>Parametroak</th>
+                    <td>
+                        <span class="code-inline">String norentzat</span>: emailaren jasotzailea.<br>
+                        <span class="code-inline">String asuntua</span>: emailaren gai nagusia.<br>
+                        <span class="code-inline">String gorputza</span>: emailaren testu edukia.
+                    </td>
+                </tr>
+                <tr>
+                    <th>Emaitza</th>
+                    <td><span class="code-inline">"Norentzat: {norentzat} | Asuntua: {asuntua} | Gorputza: {gorputza}"</span></td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Ariketa 9 -->
+        <div class="exercise-card">
+            <div class="exercise-header">9. Ariketa: postontziaKudeatu</div>
+            <div class="exercise-signature">public static int postontziaKudeatu(Postontzia postontzia, Email email)</div>
+            <div class="exercise-description">Email bat Postontzi batera gehitzen du eta postontziak dituen email kopurua bueltatzen du.</div>
+            <table class="details-table">
+                <tr>
+                    <th>Parametroak</th>
+                    <td>
+                        <span class="code-inline">Postontzia postontzia</span>: helburuko Postontzia objektua.<br>
+                        <span class="code-inline">Email email</span>: gehitu nahi den Email objektua.
+                    </td>
+                </tr>
+                <tr>
+                    <th>Emaitza</th>
+                    <td>Postontzian dauden email guztiak gehitu ondoren (<span class="code-inline">int</span>).</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Ariketa 10 -->
+        <div class="exercise-card">
+            <div class="exercise-header">10. Ariketa: ikasgelakoIkasleakZenbatu</div>
+            <div class="exercise-signature">public static int ikasgelakoIkasleakZenbatu(Ikasgela ikasgela, Pertsona ikaslea)</div>
+            <div class="exercise-description">Pertsona (ikasle) bat Ikasgela batera gehitzen du eta ikasgelako ikasle kopurua bueltatzen du.</div>
+            <table class="details-table">
+                <tr>
+                    <th>Parametroak</th>
+                    <td>
+                        <span class="code-inline">Ikasgela ikasgela</span>: Ikasgela objektua.<br>
+                        <span class="code-inline">Pertsona ikaslea</span>: gehitu nahi den Pertsona ikaslea.
+                    </td>
+                </tr>
+                <tr>
+                    <th>Emaitza</th>
+                    <td>Ikasgelan dauden ikasle guztiak gehitu ondoren (<span class="code-inline">int</span>).</td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+
+</body>
+</html>

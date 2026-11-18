@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="eu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grader Ebaluatzaile Automatikoa - Erabilera Gida</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+    <div class="container">
+        <!-- HEADER -->
+        <div class="header-container">
+            <div class="header-title">Java Programazio Ariketak: Grader Erabilera Gida</div>
+            <div class="header-subtitle">Autoevaluazio sistema automatikoa Eclipse IDE ingurunean</div>
+            <div class="meta-info">
+                <div><strong>Ingurunea:</strong> Eclipse IDE / Java SE</div>
+                <div><strong>Ebaluatzailea:</strong> <span class="code-inline" style="color: #ffffff; background: #2b6cb0;">Grader</span></div>
+            </div>
+        </div>
+
+        <!-- INTRO -->
+        <div class="instructions-box">
+            <div class="instructions-title">💡 Zer da Grader sistema?</div>
+            Grader sistema zure Java kodea modu automatikoan egiaztatzeko prestatutako lan-ingurunea da. Zure proiektuak hiru fitxategi nagusi ditu, bakoitza zeregin jakin batekin. Gida honetan fitxategi bakoitza nola erabili eta Eclipse-n probak nola exekutatu azalduko dizugu.
+        </div>
+
+        <!-- FITXATEGI NAGUSIAK -->
+        <div class="section-header">1. Proiektuaren Fitxategi Nagusiak</div>
+
+        <div class="card">
+            <div class="card-title">📄 1. Ariketak.java (Zure Kodea)</div>
+            <p>Hau da <strong>zure lan-eremua</strong>. Bertan inplementatu behar dituzu proposatutako ariketa guztien metodoak.</p>
+            <ul>
+                <li>Metodo bakoitzaren gainean <strong>Javadoc iruzkin bat</strong> aurkituko duzu, parametroak, itzulitako balioak eta adibideak azalduz.</li>
+                <li>Zure kodea <span class="code-inline">// TODO: Logika inplementatu...</span> lerroaren ordez idatzi behar duzu.</li>
+                <li><strong>Garrantzitsua:</strong> Ez aldatu metodoen izenak ezta parametroen motak ere, bestela Grader-ak ezingo ditu probatu.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <div class="card-title">⚙️ 2. GraderConfig.java (Konfigurazioa)</div>
+            <p>Fitxategi honen bidez <strong>zein ariketa probatu nahi duzun aukeratzen duzu</strong>.</p>
+            <div class="code-block">
+public class GraderConfig {
+    // true  -> Ariketa GUZTIAK batera exekutatzen ditu
+    // false -> EXERCISE_NUMBER egokitutako ariketa BAKARRA exekutatzen du
+    public static final boolean RUN_ALL = false;
+
+    // Probatu nahi duzun ariketaren zenbakia (1-13 tartean)
+    public static final int EXERCISE_NUMBER = 1;
+}
+            </div>
+            <ul>
+                <li>Ariketa bakar bat lantzen ari zarenean, jarri <span class="code-inline">RUN_ALL = false;</span> eta aldatu <span class="code-inline">EXERCISE_NUMBER</span> dagokion zenbakira.</li>
+                <li>Guztiak amaitu dituzunean eta berrikuspen orokorra egin nahi duzunean, ezarri <span class="code-inline">RUN_ALL = true;</span>.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <div class="card-title">🚀 3. Grader[izenEspezifikoa].java (Ebaluatzaile Nagusia)</div>
+            <p>Fitxategi hau da <strong>Eclipse-n exekutatu behar duzun programa nagusia</strong>.</p>
+            <ul>
+                <li><span class="code-inline">GraderConfig.java</span> fitxategiko ezarpenak irakurtzen ditu eta zure kodea probatzen du automatikoki.</li>
+                <li>Ez duzu fitxategi honen barruko kodea aldatu behar; bakarrik exekutatu behar duzu.</li>
+            </ul>
+        </div>
+
+        <!-- URRATSAK -->
+        <div class="section-header">2. Nola Erabili Eclipse-n (Urratsak)</div>
+
+        <div class="card">
+            <ol class="steps-list">
+                <li>
+                    <strong>Idatzi kodea Ariketak.java fitxategian:</strong><br>
+                    Ireki <span class="code-inline">Ariketak.java</span>, aukeratu egin nahi duzun ariketa eta idatzi beharrezko Java kodea.
+                </li>
+                <li>
+                    <strong>Aukeratu ariketa GraderConfig.java fitxategian:</strong><br>
+                    Ireki <span class="code-inline">GraderConfig.java</span> eta adierazi landuko duzun ariketaren zenbakia (adibidez: <span class="code-inline">EXERCISE_NUMBER = 1;</span>).
+                </li>
+                <li>
+                    <strong>Exekutatu Grader-a Eclipse-n:</strong><br>
+                    Sakatu eskuineko botoiaz <span class="code-inline">Grader[izenEspezifikoa].java</span> fitxategian &rarr; <strong>Run As</strong> &rarr; <strong>Java Application</strong>.
+                </li>
+                <li>
+                    <strong>Aztertu emaitza Eclipse-ko Kontsolan (Console tab):</strong><br>
+                    Irteeran mezu hauek ikusiko dituzu:
+                    <ul>
+                        <li><span class="badge-ok">[OK]</span> : Zure kodeak test kasua egoki igaro du.</li>
+                        <li><span class="badge-error">[ERROREA]</span> : Emaitza ez da espero zena. Mezuan <em>"Esperotakoa"</em> eta <em>"Lortutakoa"</em> alderatuta agertuko zaizkizu zergatia ikusteko.</li>
+                        <li><strong>Azken puntuazioa:</strong> Exekuzioaren amaieran gainditutako proben portzentajea eta laburpena ikusiko dituzu.</li>
+                    </ul>
+                </li>
+            </ol>
+        </div>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="eu">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Autograder Ariketak - Infortxurdi</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/sidebar.min.css" />
+    <link rel="stylesheet" href="docsify-custom.css">
+</head>
+
+<body>
+    <div id="app"></div>
+
+    <script>
+        // Redirige la raíz a #/eus/
+        if (!window.location.hash || window.location.hash === '#/') {
+            window.location.hash = '#/eus/';
+        }
+
+        // Permite que Docsify cargue archivos .html reales sin dar 404 al pedir *.html.md
+        (function () {
+            var origOpen = XMLHttpRequest.prototype.open;
+            XMLHttpRequest.prototype.open = function (method, url) {
+                if (typeof url === 'string' && /\.html\.md(\?.*)?$/.test(url)) {
+                    url = url.replace(/\.html\.md(\?.*)?$/, '.html$1');
+                }
+                return origOpen.apply(this, arguments);
+            };
+        })();
+
+        window.$docsify = {
+            name: 'Autograder Ariketak - Infortxurdi',
+            repo: 'https://github.com/infortxurdi/autograder',
+            loadSidebar: true,
+            subMaxLevel: 2,
+            sidebarDisplayLevel: 1,
+
+            alias: {
+                '/eus/': '/eus/index.html',
+                '/eus/(.*)/_sidebar.md': '/eus/_sidebar.md',
+                '/es/': '/es/index.html',
+                '/es/(.*)/_sidebar.md': '/es/_sidebar.md'
+            },
+
+            fallbackLanguages: ['eus'],
+
+            nameLink: {
+                '/eus/': '#/eus/',
+                '/es/': '#/es/',
+                '/': '#/eus/'
+            },
+
+            search: {
+                placeholder: {
+                    '/eus/': 'Bilatu...',
+                    '/es/': 'Buscar...',
+                    '/': 'Bilatu...'
+                },
+                noData: {
+                    '/eus/': 'Emaitzarik ez',
+                    '/es/': 'Sin resultados',
+                    '/': 'Emaitzarik ez'
+                },
+                pathNamespaces: ['/eus', '/es']
+            },
+
+            plugins: [
+                function (hook, vm) {
+                    hook.beforeEach(function (content) {
+                        var trimmed = content.trim();
+                        if (trimmed.startsWith('<!DOCTYPE') || trimmed.startsWith('<html')) {
+                            var parser = new DOMParser();
+                            var doc = parser.parseFromString(content, 'text/html');
+                            var container = doc.querySelector('.container');
+                            var html = container ? container.outerHTML : doc.body.innerHTML;
+
+                            var match = vm.route.path.match(/^\/(eus|es)\//);
+                            if (match) {
+                                var lang = match[1];
+                                var wrapper = document.createElement('div');
+                                wrapper.innerHTML = html;
+
+                                // Convierte enlaces internos .html a rutas Docsify
+                                wrapper.querySelectorAll('a[href$=".html"]').forEach(function (a) {
+                                    var href = a.getAttribute('href');
+                                    if (href && !href.startsWith('http') && !href.startsWith('#') && !href.startsWith('/')) {
+                                        a.setAttribute('href', '#/' + lang + '/' + href);
+                                    }
+                                });
+
+                                var rawFile = vm.route.file.replace(/^\//, '').replace(/\.html\.md$/, '.html');
+                                var label = lang === 'es'
+                                    ? '🖨️ Abrir versión imprimible'
+                                    : '🖨️ Inprimatzeko bertsioa ireki';
+                                var toolbar = '<div class="standalone-bar"><a href="' + rawFile + '" target="_blank" rel="noopener">' + label + '</a></div>';
+
+                                return toolbar + wrapper.innerHTML;
+                            }
+                            return html;
+                        }
+                        return content;
+                    });
+                }
+            ]
+        };
+    </script>
+
+    <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
+    <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-java.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/docsify-sidebar-collapse.min.js"></script>
+</body>
+
+</html>

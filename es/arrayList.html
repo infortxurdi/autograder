@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios de Programación en Java - ArrayList</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+    <div class="container">
+        <div class="header-container">
+            <div class="header-title">Ejercicios de Programación en Java</div>
+            <div class="header-subtitle">ArrayList: Strings, números y clases propias</div>
+            <div class="meta-info">
+                <div><strong>Paquete:</strong> <span class="code-inline" style="color: #ffffff; background: #2b6cb0;">arrayList</span></div>
+                <div><strong>Clases:</strong> <span class="code-inline" style="color: #ffffff; background: #2b6cb0;">Ariketak</span>, <span class="code-inline" style="color: #ffffff; background: #2b6cb0;">Ikaslea</span>, <span class="code-inline" style="color: #ffffff; background: #2b6cb0;">Produktua</span></div>
+                <div class="download-area"><a href="/es/zips/arrayList.zip" class="download-btn" download> DESCARGAR </a></div>
+            </div>
+        </div>
+
+        <div class="instructions-box">
+            <div class="instructions-title">📋 Instrucciones</div>
+            Completa la lógica de cada método del archivo <span class="code-inline">Ariketak.java</span>, respetando las especificaciones y ejemplos detallados en los comentarios Javadoc. Antes de resolver los ejercicios del bloque C, deberás crear e implementar las clases <span class="code-inline">Ikaslea.java</span> y <span class="code-inline">Produktua.java</span>. Todos los métodos de la clase <span class="code-inline">Ariketak</span> son estáticos (<span class="code-inline">public static</span>).
+        </div>
+
+        <!-- BLOQUE A -->
+        <div class="section-header">BLOQUE A: LISTAS DE STRING (ArrayList&lt;String&gt;)</div>
+        <div class="section-desc">Para resolver los ejercicios de este bloque se deben utilizar los métodos de la clase <span class="code-inline">ArrayList&lt;String&gt;</span> (<span class="code-inline">add</span>, <span class="code-inline">get</span>, <span class="code-inline">set</span>, <span class="code-inline">remove</span>, <span class="code-inline">contains</span>, <span class="code-inline">size</span>...).</div>
+
+        <!-- Ejercicio 1 -->
+        <div class="exercise-card">
+            <div class="exercise-header">1. Ejercicio: gehituErrepikatuGabe</div>
+            <div class="exercise-signature">public static boolean gehituErrepikatuGabe(ArrayList&lt;String&gt; zerrenda, String elementua)</div>
+            <div class="exercise-description">Añade un elemento al final de la lista, siempre y cuando no exista previamente en ella.</div>
+            <table class="details-table">
+                <tr>
+                    <th>Parámetros</th>
+                    <td>
+                        <span class="code-inline">ArrayList&lt;String&gt; zerrenda</span>: ArrayList de textos.<br>
+                        <span class="code-inline">String elementua</span>: texto que se desea añadir.
+                    </td>
+                </tr>
+                <tr>
+                    <th>Resultado</th>
+                    <td><span class="code-inline">true</span> si se ha añadido el elemento; <span class="code-inline">false</span> si ya existía o si alguno de los parámetros es nulo.</td>
+                </tr>
+                <tr>
+                    <th>Ejemplos</th>
+                    <td>
+                        <ul>
+                            <li><span class="code-inline">gehituErrepikatuGabe(["Ana", "Jon"], "Ane")</span> &rarr; <span class="code-inline">true</span> (lista: <span class="code-inline">["Ana", "Jon", "Ane"]</span>)</li>
+                            <li><span class="code-inline">gehituErrepikatuGabe(["Ana", "Jon"], "Jon")</span> &rarr; <span class="code-inline">false</span> (lista: <span class="code-inline">["Ana", "Jon"]</span>)</li>
+                            <li><span class="code-inline">gehituErrepikatuGabe(null, "Ane")</span> &rarr; <span class="code-inline">false</span></li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Ejercicio 2 -->
+        <div class="exercise-card">
+            <div class="exercise-header">2. Ejercicio: ezabatuLuzeraTxikikoak</div>
+            <div class="exercise-signature">public static int ezabatuLuzeraTxikikoak(ArrayList&lt;String&gt; hitzak, int gutxienekoLuzera)</div>
+            <div class="exercise-description">Elimina de la lista todas las palabras que tengan menos caracteres que la longitud mínima indicada (&lt; gutxienekoLuzera) (cuidado con los índices al eliminar elementos).</div>
+            <table class="details-table">
+                <tr>
+                    <th>Parámetros</th>
+                    <td>
+                        <span class="code-inline">ArrayList&lt;String&gt; hitzak</span>: ArrayList de String que se debe analizar y modificar.<br>
+                        <span class="code-inline">int gutxienekoLuzera</span>: longitud mínima necesaria para mantener las palabras.
+                    </td>
+                </tr>
+                <tr>
+                    <th>Resultado</th>
+                    <td>Número de palabras eliminadas. <span class="code-inline">0</span> si la lista es nula.</td>
+                </tr>
+                <tr>
+                    <th>Ejemplos</th>
+                    <td>
+                        <ul>
+                            <li><span class="code-inline">ezabatuLuzeraTxikikoak(["Kaixo", "Ni", "Zu", "Euskara", "Ba"], 3)</span> &rarr; <span class="code-inline">3</span> (lista: <span class="code-inline">["Kaixo", "Euskara"]</span>)</li>
+                            <li><span class="code-inline">ezabatuLuzeraTxikikoak(["Java", "Python"], 3)</span> &rarr; <span class="code-inline">0</span></li>
+                            <li><span class="code-inline">ezabatuLuzeraTxikikoak(null, 3)</span> &rarr; <span class="code-inline">0</span></li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Ejercicio 3 -->
+        <div class="exercise-card">
+            <div class="exercise-header">3. Ejercicio: bilatuHitzLuzeena</div>
+            <div class="exercise-signature">public static String bilatuHitzLuzeena(ArrayList&lt;String&gt; hitzak)</div>
+            <div class="exercise-description">Encuentra la palabra más larga de la lista. En caso de empate, devuelve la primera que aparece.</div>
+            <table class="details-table">
+                <tr>
+                    <th>Parámetros</th>
+                    <td><span class="code-inline">ArrayList&lt;String&gt; hitzak</span>: ArrayList de String que se desea analizar.</td>
+                </tr>
+                <tr>
+                    <th>Resultado</th>
+                    <td>La palabra más larga. <span class="code-inline">null</span> si la lista es nula o está vacía.</td>
+                </tr>
+                <tr>
+                    <th>Ejemplos</th>
+                    <td>
+                        <ul>
+                            <li><span class="code-inline">bilatuHitzLuzeena(["katua", "txakurra", "arraina"])</span> &rarr; <span class="code-inline">"txakurra"</span></li>
+                            <li><span class="code-inline">bilatuHitzLuzeena(["bat", "hiru", "bost"])</span> &rarr; <span class="code-inline">"hiru"</span></li>
+                            <li><span class="code-inline">bilatuHitzLuzeena([])</span> &rarr; <span class="code-inline">null</span></li>
+                            <li><span class="code-inline">bilatuHitzLuzeena(null)</span> &rarr; <span class="code-inline">null</span></li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Ejercicio 4 -->
+        <div class="exercise-card">
+            <div class="exercise-header">4. Ejercicio: bihurtuMaiuskulara</div>
+            <div class="exercise-signature">public static ArrayList&lt;String&gt; bihurtuMaiuskulara(ArrayList&lt;String&gt; hitzak)</div>
+            <div class="exercise-description">Devuelve un NUEVO ArrayList con todas las palabras de la lista original convertidas a mayúsculas. La lista original no debe modificarse.</div>
+            <table class="details-table">
+                <tr>
+                    <th>Parámetros</th>
+                    <td><span class="code-inline">ArrayList&lt;String&gt; hitzak</span>: ArrayList de String original.</td>
+                </tr>
+                <tr>
+                    <th>Resultado</th>
+                    <td>Nuevo ArrayList con las palabras en mayúsculas. Lista vacía (<span class="code-inline">[]</span>) si la original es nula.</td>
+                </tr>
+                <tr>
+                    <th>Ejemplos</th>
+                    <td>
+                        <ul>
+                            <li><span class="code-inline">bihurtuMaiuskulara(["kaixo", "Mundu"])</span> &rarr; <span class="code-inline">["KAIXO", "MUNDU"]</span></li>
+                            <li><span class="code-inline">bihurtuMaiuskulara(null)</span> &rarr; <span class="code-inline">[]</span></li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Ejercicio 5 -->
+        <div class="exercise-card">
+            <div class="exercise-header">5. Ejercicio: zenbatuHasieraLetra</div>
+            <div class="exercise-signature">public static int zenbatuHasieraLetra(ArrayList&lt;String&gt; hitzak, char letra)</div>
+            <div class="exercise-description">Cuenta cuántas palabras empiezan por la letra indicada (sin distinguir entre mayúsculas y minúsculas).</div>
+            <table class="details-table">
+                <tr>
+                    <th>Parámetros</th>
+                    <td>
+                        <span class="code-inline">ArrayList&lt;String&gt; hitzak</span>: ArrayList de String.<br>
+                        <span class="code-inline">char letra</span>: carácter inicial que se desea buscar.
+                    </td>
+                </tr>
+                <tr>
+                    <th>Resultado</th>
+                    <td>Número de palabras que empiezan por esa letra. <span class="code-inline">0</span> si la lista es nula o está vacía.</td>
+                </tr>
+                <tr>
+                    <th>Ejemplos</th>
+                    <td>
+                        <ul>
+                            <li><span class="code-inline">zenbatuHasieraLetra(["Amaia", "ander", "Jon", "Aitor"], 'a')</span> &rarr; <span class="code-inline">3</span></li>
+                            <li><span class="code-inline">zenbatuHasieraLetra(["Jon", "Mikel"], 'a')</span> &rarr; <span class="code-inline">0</span></li>
+                            <li><span class="code-inline">zenbatuHasieraLetra(null, 'a')</span> &rarr; <span class="code-inline">0</span></li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Ejercicio 6 -->
+        <div class="exercise-card">
+            <div class="exercise-header">6. Ejercicio: ordezkatuHitza</div>
+            <div class="exercise-signature">public static int ordezkatuHitza(ArrayList&lt;String&gt; hitzak, String zaharra, String berria)</div>
+            <div class="exercise-description">Sustituye en la propia lista todas las apariciones de la palabra <span class="code-inline">zaharra</span> por la palabra <span class="code-inline">berria</span>.</div>
+            <table class="details-table">
+                <tr>
+                    <th>Parámetros</th>
+                    <td>
+                        <span class="code-inline">ArrayList&lt;String&gt; hitzak</span>: ArrayList de String a modificar.<br>
+                        <span class="code-inline">String zaharra</span>: palabra que se desea sustituir.<br>
+                        <span class="code-inline">String berria</span>: nueva palabra que se desea colocar.
+                    </td>
+                </tr>
+                <tr>
+                    <th>Resultado</th>
+                    <td>Número de sustituciones realizadas. <span class="code-inline">0</span> si algún parámetro es nulo.</td>
+                </tr>
+                <tr>
+                    <th>Ejemplos</th>
+                    <td>
+                        <ul>
+                            <li><span class="code-inline">ordezkatuHitza(["gorria", "urdina", "gorria"], "gorria", "horia")</span> &rarr; <span class="code-inline">2</span> (lista: <span class="code-inline">["horia", "urdina", "horia"]</span>)</li>
+                            <li><span class="code-inline">ordezkatuHitza(["urdina"], "gorria", "horia")</span> &rarr; <span class="code-inline">0</span></li>
+                            <li><span class="code-inline">ordezkatuHitza(null, "a", "b")</span> &rarr; <span class="code-inline">0</span></li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Ejercicio 7 -->
+        <div class="exercise-card">
+            <div class="exercise-header">7. Ejercicio: bateratuErrepikatuGabe</div>
+            <div class="exercise-signature">public static ArrayList&lt;String&gt; bateratuErrepikatuGabe(ArrayList&lt;String&gt; z1, ArrayList&lt;String&gt; z2)</div>
+            <div class="exercise-description">Une todos los elementos de dos listas en un NUEVO ArrayList, sin duplicados y manteniendo el orden de aparición.</div>
+            <table class="details-table">
+                <tr>
+                    <th>Parámetros</th>
+                    <td>
+                        <span class="code-inline">ArrayList&lt;String&gt; z1</span>: primer ArrayList de String.<br>
+                        <span class="code-inline">ArrayList&lt;String&gt; z2</span>: segundo ArrayList de String.
+                    </td>
+                </tr>
+                <tr>
+                    <th>Resultado</th>
+                    <td>Nuevo ArrayList con la unión de ambas listas (sin repetidos).</td>
+                </tr>
+                <tr>
+                    <th>Ejemplos</th>
+                    <td>
+                        <ul>
+                            <li><span class="code-inline">bateratuErrepikatuGabe(["A", "B", "A"], ["B", "C", "D"])</span> &rarr; <span class="code-inline">["A", "B", "C", "D"]</span></li>
+                            <li><span class="code-inline">bateratuErrepikatuGabe(null, ["X", "X"])</span> &rarr; <span class="code-inline">["X"]</span></li>
+                            <li><span class="code-inline">bateratuErrepikatuGabe(null, null)</span> &rarr; <span class="code-inline">[]</span></li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- BLOQUE B -->
+        <div class="section-header">BLOQUE B: LISTAS DE NÚMEROS (Integer y Double)</div>
+        <div class="section-desc">En este bloque se trabajará con clases envoltorio (<span class="code-inline">Integer</span> y <span class="code-inline">Double</span>), practicando el <span class="code-inline">autoboxing</span> / <span class="code-inline">unboxing</span> y la diferencia entre <span class="code-inline">remove(Object)</span> y <span class="code-inline">remove(int)</span>.</div>
+
+        <!-- Ejercicio 8 -->
+        <div class="exercise-card">
+            <div class="exercise-header">8. Ejercicio: batuBikoitiak</div>
+            <div class="exercise-signature">public static int batuBikoitiak(ArrayList&lt;Integer&gt; zenbakiak)</div>
+            <div class="exercise-description">Calcula la suma de todos los números pares de la lista.</div>
+            <table class="details-table">
+                <tr>
+                    <th>Parámetros</th>
+                    <td><span class="code-inline">ArrayList&lt;Integer&gt; zenbakiak</span>: ArrayList de Integer.</td>
+                </tr>
+                <tr>
+                    <th>Resultado</th>
+                    <td>Suma de los números pares. <span class="code-inline">0</span> si la lista es nula o está vacía.</td>
+                </tr>
+                <tr>
+                    <th>Ejemplos</th>
+                    <td>
+                        <ul>
+                            <li><span class="code-inline">batuBikoitiak([1, 2, 3, 4, 6])</span> &rarr; <span class="code-inline">12</span></li>
+                            <li><span class="code-inline">batuBikoitiak([1, 3, 5])</span> &rarr; <span class="code-inline">0</span></li>
+                            <li><span class="code-inline">batuBikoitiak(null)</span> &rarr; <span class="code-inline">0</span></li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Ejercicio 9 -->
+        <div class="exercise-card">
+            <div class="exercise-header">9. Ejercicio: ezabatuBalioGuztiak</div>
+            <div class="exercise-signature">public static boolean ezabatuBalioGuztiak(ArrayList&lt;Integer&gt; zenbakiak, int balioa)</div>
+            <div class="exercise-description">Elimina de la lista todas las apariciones del número indicado (cuidado al distinguir entre <span class="code-inline">remove(int indice)</span> y <span class="code-inline">remove(Object valor)</span>).</div>
+            <table class="details-table">
+                <tr>
+                    <th>Parámetros</th>
+                    <td>
+                        <span class="code-inline">ArrayList&lt;Integer&gt; zenbakiak</span>: ArrayList de Integer.<br>
+                        <span class="code-inline">int balioa</span>: número entero que se desea eliminar.
+                    </td>
+                </tr>
+                <tr>
+                    <th>Resultado</th>
+                    <td><span class="code-inline">true</span> si se ha eliminado al menos un elemento; <span class="code-inline">false</span> en caso contrario o si la lista es nula.</td>
+                </tr>
+                <tr>
+                    <th>Ejemplos</th>
+                    <td>
+                        <ul>
+                            <li><span class="code-inline">ezabatuBalioGuztiak([2, 5, 2, 8, 2], 2)</span> &rarr; <span class="code-inline">true</span> (lista: <span class="code-inline">[5, 8]</span>)</li>
+                            <li><span class="code-inline">ezabatuBalioGuztiak([1, 3, 5], 2)</span> &rarr; <span class="code-inline">false</span></li>
+                            <li><span class="code-inline">ezabatuBalioGuztiak(null, 2)</span> &rarr; <span class="code-inline">false</span></li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Ejercicio 10 -->
+        <div class="exercise-card">
+            <div class="exercise-header">10. Ejercicio: batezBestekoaGainditzenDutenak</div>
+            <div class="exercise-signature">public static ArrayList&lt;Double&gt; batezBestekoaGainditzenDutenak(ArrayList&lt;Double&gt; notak)</div>
+            <div class="exercise-description">Calcula la media aritmética de las notas de la lista y devuelve un NUEVO ArrayList con las notas estrictamente superiores (&gt; batezBestekoa) a dicha media.</div>
+            <table class="details-table">
+                <tr>
+                    <th>Parámetros</th>
+                    <td><span class="code-inline">ArrayList&lt;Double&gt; notak</span>: ArrayList de notas de tipo Double.</td>
+                </tr>
+                <tr>
+                    <th>Resultado</th>
+                    <td>Nuevo ArrayList con las notas que superan la media. Lista vacía (<span class="code-inline">[]</span>) si es nula o está vacía.</td>
+                </tr>
+                <tr>
+                    <th>Ejemplos</th>
+                    <td>
+                        <ul>
+                            <li><span class="code-inline">batezBestekoaGainditzenDutenak([4.0, 6.0, 8.0])</span> &rarr; <span class="code-inline">[8.0]</span> (media: 6.0)</li>
+                            <li><span class="code-inline">batezBestekoaGainditzenDutenak([5.0, 5.0])</span> &rarr; <span class="code-inline">[]</span></li>
+                            <li><span class="code-inline">batezBestekoaGainditzenDutenak(null)</span> &rarr; <span class="code-inline">[]</span></li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Ejercicio 11 -->
+        <div class="exercise-card">
+            <div class="exercise-header">11. Ejercicio: txertatuOrdenatuta</div>
+            <div class="exercise-signature">public static void txertatuOrdenatuta(ArrayList&lt;Integer&gt; zerrendaOrdenatua, int berria)</div>
+            <div class="exercise-description">Inserta un nuevo número en la posición correspondiente dentro de una lista ordenada de forma ascendente, de modo que la lista siga ordenada.</div>
+            <table class="details-table">
+                <tr>
+                    <th>Parámetros</th>
+                    <td>
+                        <span class="code-inline">ArrayList&lt;Integer&gt; zerrendaOrdenatua</span>: ArrayList de Integer ordenado ascendentemente.<br>
+                        <span class="code-inline">int berria</span>: número que se desea insertar.
+                    </td>
+                </tr>
+                <tr>
+                    <th>Resultado</th>
+                    <td><span class="code-inline">void</span> (modifica la propia lista utilizando <span class="code-inline">add(indizea, berria)</span>).</td>
+                </tr>
+                <tr>
+                    <th>Ejemplos</th>
+                    <td>
+                        <ul>
+                            <li><span class="code-inline">txertatuOrdenatuta([10, 20, 40, 50], 30)</span> &rarr; lista: <span class="code-inline">[10, 20, 30, 40, 50]</span></li>
+                            <li><span class="code-inline">txertatuOrdenatuta([10, 20], 5)</span> &rarr; lista: <span class="code-inline">[5, 10, 20]</span></li>
+                            <li><span class="code-inline">txertatuOrdenatuta([], 7)</span> &rarr; lista: <span class="code-inline">[7]</span></li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Ejercicio 12 -->
+        <div class="exercise-card">
+            <div class="exercise-header">12. Ejercicio: bigarrenHandiena</div>
+            <div class="exercise-signature">public static int bigarrenHandiena(ArrayList&lt;Integer&gt; zenbakiak)</div>
+            <div class="exercise-description">Encuentra el segundo mayor valor (distinto) de la lista.</div>
+            <table class="details-table">
+                <tr>
+                    <th>Parámetros</th>
+                    <td><span class="code-inline">ArrayList&lt;Integer&gt; zenbakiak</span>: ArrayList de Integer.</td>
+                </tr>
+                <tr>
+                    <th>Resultado</th>
+                    <td>El segundo número mayor. <span class="code-inline">Integer.MIN_VALUE</span> si es nula o tiene menos de 2 valores distintos.</td>
+                </tr>
+                <tr>
+                    <th>Ejemplos</th>
+                    <td>
+                        <ul>
+                            <li><span class="code-inline">bigarrenHandiena([10, 5, 20, 8])</span> &rarr; <span class="code-inline">10</span></li>
+                            <li><span class="code-inline">bigarrenHandiena([20, 20, 15, 10])</span> &rarr; <span class="code-inline">15</span></li>
+                            <li><span class="code-inline">bigarrenHandiena([5, 5, 5])</span> &rarr; <span class="code-inline">Integer.MIN_VALUE</span> (-2147483648)</li>
+                            <li><span class="code-inline">bigarrenHandiena(null)</span> &rarr; <span class="code-inline">Integer.MIN_VALUE</span> (-2147483648)</li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Ejercicio 13 -->
+        <div class="exercise-card">
+            <div class="exercise-header">13. Ejercicio: aplikatuDeskontua</div>
+            <div class="exercise-signature">public static void aplikatuDeskontua(ArrayList&lt;Double&gt; prezioak, double ehunekoa)</div>
+            <div class="exercise-description">Aplica un porcentaje de descuento a todos los precios de la lista sobre la propia lista. Si el porcentaje es menor que 0 o mayor que 100, no realiza ningún cambio.</div>
+            <table class="details-table">
+                <tr>
+                    <th>Parámetros</th>
+                    <td>
+                        <span class="code-inline">ArrayList&lt;Double&gt; prezioak</span>: ArrayList de precios de tipo Double.<br>
+                        <span class="code-inline">double ehunekoa</span>: porcentaje de descuento (entre 0.0 y 100.0).
+                    </td>
+                </tr>
+                <tr>
+                    <th>Resultado</th>
+                    <td><span class="code-inline">void</span> (actualiza los elementos de la lista utilizando <span class="code-inline">set()</span>).</td>
+                </tr>
+                <tr>
+                    <th>Ejemplos</th>
+                    <td>
+                        <ul>
+                            <li><span class="code-inline">aplikatuDeskontua([100.0, 50.0], 20.0)</span> &rarr; lista: <span class="code-inline">[80.0, 40.0]</span></li>
+                            <li><span class="code-inline">aplikatuDeskontua([100.0], -5.0)</span> &rarr; lista: <span class="code-inline">[100.0]</span></li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Ejercicio 14 -->
+        <div class="exercise-card">
+            <div class="exercise-header">14. Ejercicio: iragaziTartea</div>
+            <div class="exercise-signature">public static ArrayList&lt;Integer&gt; iragaziTartea(ArrayList&lt;Integer&gt; zenbakiak, int min, int max)</div>
+            <div class="exercise-description">Devuelve un NUEVO ArrayList con los números que se encuentran dentro del intervalo <span class="code-inline">[min, max]</span> (ambos inclusive).</div>
+            <table class="details-table">
+                <tr>
+                    <th>Parámetros</th>
+                    <td>
+                        <span class="code-inline">ArrayList&lt;Integer&gt; zenbakiak</span>: ArrayList de Integer original.<br>
+                        <span class="code-inline">int min</span>: valor mínimo (inclusive).<br>
+                        <span class="code-inline">int max</span>: valor máximo (inclusive).
+                    </td>
+                </tr>
+                <tr>
+                    <th>Resultado</th>
+                    <td>Nuevo ArrayList con los números dentro del rango. Lista vacía (<span class="code-inline">[]</span>) si es nula.</td>
+                </tr>
+                <tr>
+                    <th>Ejemplos</th>
+                    <td>
+                        <ul>
+                            <li><span class="code-inline">iragaziTartea([5, 10, 15, 20, 25], 10, 20)</span> &rarr; <span class="code-inline">[10, 15, 20]</span></li>
+                            <li><span class="code-inline">iragaziTartea(null, 10, 20)</span> &rarr; <span class="code-inline">[]</span></li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- BLOQUE C -->
+        <div class="section-header">BLOQUE C: LISTAS DE CLASES PROPIAS (Ikaslea y Produktua)</div>
+        <div class="section-desc">Antes de realizar los ejercicios 15-20 de este bloque, el alumnado deberá construir las siguientes dos clases (<span class="code-inline">Ikaslea</span> y <span class="code-inline">Produktua</span>) dentro del paquete <span class="code-inline">arrayList</span>.</div>
+
+        <!-- Clase 1: Ikaslea -->
+        <div class="exercise-card">
+            <div class="exercise-header">Clase: Ikaslea.java</div>
+            <div class="exercise-signature">public class Ikaslea</div>
+            <div class="exercise-description">Clase que almacena los datos de un alumno o alumna: nombre, edad y nota media.</div>
+            <table class="details-table">
+                <tr>
+                    <th>Atributos privados</th>
+                    <td>
+                        <span class="code-inline">private String izena</span><br>
+                        <span class="code-inline">private int adina</span><br>
+                        <span class="code-inline">private double nota</span>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Constructor</th>
+                    <td><span class="code-inline">public Ikaslea(String izena, int adina, double nota)</span>: inicializa todos los atributos.</td>
+                </tr>
+                <tr>
+                    <th>Métodos</th>
+                    <td>
+                        <ul>
+                            <li><span class="code-inline">public String getIzena()</span> &rarr; devuelve el nombre del alumno/a.</li>
+                            <li><span class="code-inline">public int getAdina()</span> &rarr; devuelve la edad del alumno/a.</li>
+                            <li><span class="code-inline">public double getNota()</span> &rarr; devuelve la nota del alumno/a.</li>
+                            <li><span class="code-inline">public void setNota(double nota)</span> &rarr; actualiza la nota del alumno/a.</li>
+                            <li><span class="code-inline">public boolean gainditutaDago()</span> &rarr; devuelve <span class="code-inline">true</span> si <span class="code-inline">nota &gt;= 5.0</span>; <span class="code-inline">false</span> en caso contrario.</li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Clase 2: Produktua -->
+        <div class="exercise-card">
+            <div class="exercise-header">Clase: Produktua.java</div>
+            <div class="exercise-signature">public class Produktua</div>
+            <div class="exercise-description">Clase que almacena los datos de un producto de una tienda: nombre, precio por unidad y cantidad de stock en almacén.</div>
+            <table class="details-table">
+                <tr>
+                    <th>Atributos privados</th>
+                    <td>
+                        <span class="code-inline">private String izena</span><br>
+                        <span class="code-inline">private double prezioa</span><br>
+                        <span class="code-inline">private int stock</span>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Constructor</th>
+                    <td><span class="code-inline">public Produktua(String izena, double prezioa, int stock)</span>: inicializa todos los atributos.</td>
+                </tr>
+                <tr>
+                    <th>Métodos</th>
+                    <td>
+                        <ul>
+                            <li><span class="code-inline">public String getIzena()</span> &rarr; devuelve el nombre del producto.</li>
+                            <li><span class="code-inline">public double getPrezioa()</span> &rarr; devuelve el precio del producto.</li>
+                            <li><span class="code-inline">public void setPrezioa(double prezioa)</span> &rarr; actualiza el precio del producto.</li>
+                            <li><span class="code-inline">public int getStock()</span> &rarr; devuelve el stock del producto.</li>
+                            <li><span class="code-inline">public void setStock(int stock)</span> &rarr; actualiza el stock del producto.</li>
+                            <li><span class="code-inline">public double guztizkoBalioa()</span> &rarr; calcula el valor económico total del stock (<span class="code-inline">prezioa * stock</span>).</li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Ejercicio 15 -->
+        <div class="exercise-card">
+            <div class="exercise-header">15. Ejercicio: lortuGaindituenIzenak</div>
+            <div class="exercise-signature">public static ArrayList&lt;String&gt; lortuGaindituenIzenak(ArrayList&lt;Ikaslea&gt; ikasleak)</div>
+            <div class="exercise-description">Devuelve un NUEVO <span class="code-inline">ArrayList&lt;String&gt;</span> con los nombres del alumnado que ha aprobado la asignatura (<span class="code-inline">nota &gt;= 5.0</span>).</div>
+            <table class="details-table">
+                <tr>
+                    <th>Parámetros</th>
+                    <td><span class="code-inline">ArrayList&lt;Ikaslea&gt; ikasleak</span>: ArrayList de objetos Ikaslea.</td>
+                </tr>
+                <tr>
+                    <th>Resultado</th>
+                    <td>ArrayList con los nombres de quienes han aprobado. Lista vacía (<span class="code-inline">[]</span>) si la lista es nula.</td>
+                </tr>
+                <tr>
+                    <th>Ejemplos</th>
+                    <td>
+                        <ul>
+                            <li><span class="code-inline">lortuGaindituenIzenak([Ikaslea("Ane",19,8.5), Ikaslea("Mikel",20,4.2), Ikaslea("Sara",19,5.0)])</span> &rarr; <span class="code-inline">["Ane", "Sara"]</span></li>
+                            <li><span class="code-inline">lortuGaindituenIzenak(null)</span> &rarr; <span class="code-inline">[]</span></li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Ejercicio 16 -->
+        <div class="exercise-card">
+            <div class="exercise-header">16. Ejercicio: ikasleOnena</div>
+            <div class="exercise-signature">public static Ikaslea ikasleOnena(ArrayList&lt;Ikaslea&gt; ikasleak)</div>
+            <div class="exercise-description">Devuelve el objeto <span class="code-inline">Ikaslea</span> con la nota más alta. En caso de empate, devuelve el primero que aparece.</div>
+            <table class="details-table">
+                <tr>
+                    <th>Parámetros</th>
+                    <td><span class="code-inline">ArrayList&lt;Ikaslea&gt; ikasleak</span>: ArrayList de objetos Ikaslea.</td>
+                </tr>
+                <tr>
+                    <th>Resultado</th>
+                    <td>El objeto <span class="code-inline">Ikaslea</span> con la nota más alta. <span class="code-inline">null</span> si la lista es nula o está vacía.</td>
+                </tr>
+                <tr>
+                    <th>Ejemplos</th>
+                    <td>
+                        <ul>
+                            <li><span class="code-inline">ikasleOnena([Ikaslea("Ane",19,7.5), Ikaslea("Mikel",20,9.2), Ikaslea("Sara",19,9.2)])</span> &rarr; <span class="code-inline">Mikel</span> (9.2)</li>
+                            <li><span class="code-inline">ikasleOnena([])</span> &rarr; <span class="code-inline">null</span></li>
+                            <li><span class="code-inline">ikasleOnena(null)</span> &rarr; <span class="code-inline">null</span></li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Ejercicio 17 -->
+        <div class="exercise-card">
+            <div class="exercise-header">17. Ejercicio: igoNotaGuztiei</div>
+            <div class="exercise-signature">public static void igoNotaGuztiei(ArrayList&lt;Ikaslea&gt; ikasleak, double puntuak)</div>
+            <div class="exercise-description">Suma los puntos indicados a la nota de todo el alumnado de la lista, sin superar el límite de <span class="code-inline">10.0</span>. Si <span class="code-inline">puntuak &lt;= 0</span> o la lista es nula, no hace nada.</div>
+            <table class="details-table">
+                <tr>
+                    <th>Parámetros</th>
+                    <td>
+                        <span class="code-inline">ArrayList&lt;Ikaslea&gt; ikasleak</span>: ArrayList de objetos Ikaslea.<br>
+                        <span class="code-inline">double puntuak</span>: cantidad de puntos a sumar (&gt; 0).
+                    </td>
+                </tr>
+                <tr>
+                    <th>Resultado</th>
+                    <td><span class="code-inline">void</span> (actualiza la nota de cada estudiante utilizando <span class="code-inline">setNota()</span>).</td>
+                </tr>
+                <tr>
+                    <th>Ejemplos</th>
+                    <td>
+                        <ul>
+                            <li><span class="code-inline">igoNotaGuztiei([Ikaslea("Ane",19,8.0), Ikaslea("Mikel",20,9.5)], 1.0)</span> &rarr; Ane: <span class="code-inline">9.0</span>, Mikel: <span class="code-inline">10.0</span></li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Ejercicio 18 -->
+        <div class="exercise-card">
+            <div class="exercise-header">18. Ejercicio: inbentarioarenBalioTotala</div>
+            <div class="exercise-signature">public static double inbentarioarenBalioTotala(ArrayList&lt;Produktua&gt; produktuak)</div>
+            <div class="exercise-description">Calcula el valor económico total de todos los productos del almacén (suma de <span class="code-inline">prezioa * stock</span> de cada producto).</div>
+            <table class="details-table">
+                <tr>
+                    <th>Parámetros</th>
+                    <td><span class="code-inline">ArrayList&lt;Produktua&gt; produktuak</span>: ArrayList de objetos Produktua.</td>
+                </tr>
+                <tr>
+                    <th>Resultado</th>
+                    <td>Valor total del inventario. <span class="code-inline">0.0</span> si la lista es nula o está vacía.</td>
+                </tr>
+                <tr>
+                    <th>Ejemplos</th>
+                    <td>
+                        <ul>
+                            <li><span class="code-inline">inbentarioarenBalioTotala([Produktua("Teklatua",25.0,4), Produktua("Sagua",15.0,2)])</span> &rarr; <span class="code-inline">130.0</span></li>
+                            <li><span class="code-inline">inbentarioarenBalioTotala(null)</span> &rarr; <span class="code-inline">0.0</span></li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Ejercicio 19 -->
+        <div class="exercise-card">
+            <div class="exercise-header">19. Ejercicio: erosiProduktua</div>
+            <div class="exercise-signature">public static boolean erosiProduktua(ArrayList&lt;Produktua&gt; produktuak, String izena, int kantitatea)</div>
+            <div class="exercise-description">Busca un producto por su nombre (sin distinguir entre mayúsculas y minúsculas). Si el producto existe y tiene stock suficiente (<span class="code-inline">stock &gt;= kantitatea</span> y <span class="code-inline">kantitatea &gt; 0</span>), reduce su stock y devuelve <span class="code-inline">true</span>.</div>
+            <table class="details-table">
+                <tr>
+                    <th>Parámetros</th>
+                    <td>
+                        <span class="code-inline">ArrayList&lt;Produktua&gt; produktuak</span>: ArrayList de objetos Produktua.<br>
+                        <span class="code-inline">String izena</span>: nombre del producto que se desea comprar.<br>
+                        <span class="code-inline">int kantitatea</span>: número de unidades que se desea comprar.
+                    </td>
+                </tr>
+                <tr>
+                    <th>Resultado</th>
+                    <td><span class="code-inline">true</span> si se ha realizado la compra; <span class="code-inline">false</span> si el producto no existe, no hay stock suficiente o los datos son incorrectos.</td>
+                </tr>
+                <tr>
+                    <th>Ejemplos</th>
+                    <td>
+                        <ul>
+                            <li><span class="code-inline">erosiProduktua([Produktua("Teklatua",25.0,5)], "teklatua", 3)</span> &rarr; <span class="code-inline">true</span> (nuevo stock: <span class="code-inline">2</span>)</li>
+                            <li><span class="code-inline">erosiProduktua([Produktua("Teklatua",25.0,2)], "teklatua", 4)</span> &rarr; <span class="code-inline">false</span> (el stock sigue siendo <span class="code-inline">2</span>)</li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Ejercicio 20 -->
+        <div class="exercise-card">
+            <div class="exercise-header">20. Ejercicio: stockGutxikoProduktuak</div>
+            <div class="exercise-signature">public static ArrayList&lt;Produktua&gt; stockGutxikoProduktuak(ArrayList&lt;Produktua&gt; produktuak, int muga)</div>
+            <div class="exercise-description">Devuelve un NUEVO <span class="code-inline">ArrayList&lt;Produktua&gt;</span> con los productos que tienen un stock inferior al límite indicado (&lt; muga).</div>
+            <table class="details-table">
+                <tr>
+                    <th>Parámetros</th>
+                    <td>
+                        <span class="code-inline">ArrayList&lt;Produktua&gt; produktuak</span>: ArrayList de objetos Produktua.<br>
+                        <span class="code-inline">int muga</span>: umbral mínimo de stock.
+                    </td>
+                </tr>
+                <tr>
+                    <th>Resultado</th>
+                    <td>Nuevo ArrayList con los productos con bajo stock. Lista vacía (<span class="code-inline">[]</span>) si la lista es nula.</td>
+                </tr>
+                <tr>
+                    <th>Ejemplos</th>
+                    <td>
+                        <ul>
+                            <li><span class="code-inline">stockGutxikoProduktuak([Produktua("A",10,2), Produktua("B",10,5), Produktua("C",10,1)], 5)</span> &rarr; <span class="code-inline">[A, C]</span></li>
+                            <li><span class="code-inline">stockGutxikoProduktuak(null, 5)</span> &rarr; <span class="code-inline">[]</span></li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+</body>
+</html>

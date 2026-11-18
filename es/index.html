@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evaluador Automático Grader - Guía de Uso</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+    <div class="container">
+        <!-- HEADER -->
+        <div class="header-container">
+            <div class="header-title">Ejercicios de Programación Java: Guía de Uso de Grader</div>
+            <div class="header-subtitle">Sistema de autoevaluación automático en el entorno Eclipse IDE</div>
+            <div class="meta-info">
+                <div><strong>Entorno:</strong> Eclipse IDE / Java SE</div>
+                <div><strong>Evaluador:</strong> <span class="code-inline" style="color: #ffffff; background: #2b6cb0;">Grader</span></div>
+            </div>
+        </div>
+
+        <!-- INTRO -->
+        <div class="instructions-box">
+            <div class="instructions-title">💡 ¿Qué es el sistema Grader?</div>
+            El sistema Grader es un entorno de trabajo preparado para verificar tu código Java de manera automática. Tu proyecto contiene tres archivos principales, cada uno con una tarea específica. En esta guía te explicamos cómo utilizar cada archivo y cómo ejecutar las pruebas en Eclipse.
+        </div>
+
+        <!-- FITXATEGI NAGUSIAK -->
+        <div class="section-header">1. Archivos Principales del Proyecto</div>
+
+        <div class="card">
+            <div class="card-title">📄 1. Ariketak.java (Tu Código)</div>
+            <p>Este es <strong>tu espacio de trabajo</strong>. En él debes implementar los métodos de todos los ejercicios propuestos.</p>
+            <ul>
+                <li>Encima de cada método encontrarás un <strong>comentario Javadoc</strong> que explica los parámetros, valores devueltos y ejemplos.</li>
+                <li>Debes escribir tu código en lugar de la línea <span class="code-inline">// TODO: Logika inplementatu...</span>.</li>
+                <li><strong>Importante:</strong> No cambies los nombres de los métodos ni los tipos de parámetros; de lo contrario, Grader no podrá probarlos.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <div class="card-title">⚙️ 2. GraderConfig.java (Configuración)</div>
+            <p>A través de este archivo <strong>eliges qué ejercicio deseas probar</strong>.</p>
+            <div class="code-block">
+public class GraderConfig {
+    // true  -> Ejecuta TODOS los ejercicios juntos
+    // false -> Ejecuta UN SOLO ejercicio correspondiente a EXERCISE_NUMBER
+    public static final boolean RUN_ALL = false;
+
+    // Número del ejercicio que deseas probar (entre 1 y 13)
+    public static final int EXERCISE_NUMBER = 1;
+}
+            </div>
+            <ul>
+                <li>Cuando estés trabajando en un solo ejercicio, pon <span class="code-inline">RUN_ALL = false;</span> y cambia <span class="code-inline">EXERCISE_NUMBER</span> al número correspondiente.</li>
+                <li>Cuando hayas terminado todos y quieras hacer una revisión general, establece <span class="code-inline">RUN_ALL = true;</span>.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <div class="card-title">🚀 3. Grader[nombreEspecifico].java (Evaluador Principal)</div>
+            <p>Este archivo es el <strong>programa principal que debes ejecutar en Eclipse</strong>.</p>
+            <ul>
+                <li>Lee los ajustes del archivo <span class="code-inline">GraderConfig.java</span> y prueba tu código automáticamente.</li>
+                <li>No necesitas modificar el código de este archivo; solo debes ejecutarlo.</li>
+            </ul>
+        </div>
+
+        <!-- PASOS -->
+        <div class="section-header">2. Cómo Usar en Eclipse (Pasos)</div>
+
+        <div class="card">
+            <ol class="steps-list">
+                <li>
+                    <strong>Escribe el código en el archivo Ariketak.java:</strong><br>
+                    Abre <span class="code-inline">Ariketak.java</span>, elige el ejercicio que deseas hacer y escribe el código Java necesario.
+                </li>
+                <li>
+                    <strong>Selecciona el ejercicio en el archivo GraderConfig.java:</strong><br>
+                    Abre <span class="code-inline">GraderConfig.java</span> e indica el número del ejercicio en el que vas a trabajar (por ejemplo: <span class="code-inline">EXERCISE_NUMBER = 1;</span>).
+                </li>
+                <li>
+                    <strong>Ejecuta el Grader en Eclipse:</strong><br>
+                    Haz clic con el botón derecho en el archivo <span class="code-inline">Grader[nombreEspecifico].java</span> &rarr; <strong>Run As</strong> &rarr; <strong>Java Application</strong>.
+                </li>
+                <li>
+                    <strong>Analiza el resultado en la Consola de Eclipse (pestaña Console):</strong><br>
+                    En la salida verás estos mensajes:
+                    <ul>
+                        <li><span class="badge-ok">[OK]</span> : Tu código ha pasado el caso de prueba correctamente.</li>
+                        <li><span class="badge-error">[ERROR]</span> : El resultado no es el esperado. En el mensaje aparecerán comparados <em>"Esperado"</em> y <em>"Obtenido"</em> para identificar la causa.</li>
+                        <li><strong>Puntuación final:</strong> Al final de la ejecución verás el porcentaje de pruebas superadas y un resumen.</li>
+                    </ul>
+                </li>
+            </ol>
+        </div>
+
+    </div>
+
+</body>
+</html>

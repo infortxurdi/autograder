@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="eu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Programazio Ariketak - ArrayListak</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+    <div class="container">
+        <div class="header-container">
+            <div class="header-title">Java Programazio Ariketak</div>
+            <div class="header-subtitle">ArrayListak: Stringak, zenbakiak eta klase propioak</div>
+            <div class="meta-info">
+                <div><strong>Paketea:</strong> <span class="code-inline" style="color: #ffffff; background: #2b6cb0;">arrayList</span></div>
+                <div><strong>Klaseak:</strong> <span class="code-inline" style="color: #ffffff; background: #2b6cb0;">Ariketak</span>, <span class="code-inline" style="color: #ffffff; background: #2b6cb0;">Ikaslea</span>, <span class="code-inline" style="color: #ffffff; background: #2b6cb0;">Produktua</span></div>
+            </div>
+        </div>
+
+        <div class="instructions-box">
+            <div class="instructions-title">📋 Jarraibideak</div>
+            Osatu <span class="code-inline">Ariketak.java</span> fitxategiko metodo bakoitzaren logika, Javadoc iruzkinetan azaltzen diren zehaztapenak eta adibideak errespetatuz. C blokeko ariketak ebatzi aurretik, <span class="code-inline">Ikaslea.java</span> eta <span class="code-inline">Produktua.java</span> klaseak sortu eta inplementatu beharko dituzu. <span class="code-inline">Ariketak</span> klaseko metodo guztiak estatikoak dira (<span class="code-inline">public static</span>).
+            <div class="download-area"><a href="/eus/zips/arrayList.zip" class="download-btn" download> DESKARGATU </a></div>
+        </div>
+
+        <!-- A BLOKEA -->
+        <div class="section-header">A BLOKEA: STRING ZERRENDAK (ArrayList&lt;String&gt;)</div>
+        <div class="section-desc">Bloke honetako ariketak ebazteko <span class="code-inline">ArrayList&lt;String&gt;</span> klasearen metodoak (<span class="code-inline">add</span>, <span class="code-inline">get</span>, <span class="code-inline">set</span>, <span class="code-inline">remove</span>, <span class="code-inline">contains</span>, <span class="code-inline">size</span>...) erabili behar dira.</div>
+
+        <!-- Ariketa 1 -->
+        <div class="exercise-card">
+            <div class="exercise-header">1. Ariketa: gehituErrepikatuGabe</div>
+            <div class="exercise-signature">public static boolean gehituErrepikatuGabe(ArrayList&lt;String&gt; zerrenda, String elementua)</div>
+            <div class="exercise-description">Elementu bat zerrendaren amaieran gehitzen du, baldin eta aurretik zerrendan ez badago.</div>
+            <table class="details-table">
+                <tr>
+                    <th>Parametroak</th>
+                    <td>
+                        <span class="code-inline">ArrayList&lt;String&gt; zerrenda</span>: testuen ArrayLista.<br>
+                        <span class="code-inline">String elementua</span>: gehitu nahi den testua.
+                    </td>
+                </tr>
+                <tr>
+                    <th>Emaitza</th>
+                    <td><span class="code-inline">true</span> elementua gehitu bada; <span class="code-inline">false</span> lehendik bazegoen edo parametroren bat nulua bada.</td>
+                </tr>
+                <tr>
+                    <th>Adibideak</th>
+                    <td>
+                        <ul>
+                            <li><span class="code-inline">gehituErrepikatuGabe(["Ana", "Jon"], "Ane")</span> &rarr; <span class="code-inline">true</span> (zerrenda: <span class="code-inline">["Ana", "Jon", "Ane"]</span>)</li>
+                            <li><span class="code-inline">gehituErrepikatuGabe(["Ana", "Jon"], "Jon")</span> &rarr; <span class="code-inline">false</span> (zerrenda: <span class="code-inline">["Ana", "Jon"]</span>)</li>
+                            <li><span class="code-inline">gehituErrepikatuGabe(null, "Ane")</span> &rarr; <span class="code-inline">false</span></li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Ariketa 2 -->
+        <div class="exercise-card">
+            <div class="exercise-header">2. Ariketa: ezabatuLuzeraTxikikoak</div>
+            <div class="exercise-signature">public static int ezabatuLuzeraTxikikoak(ArrayList&lt;String&gt; hitzak, int gutxienekoLuzera)</div>
+            <div class="exercise-description">Gutxieneko luzera baino karaktere gutxiago (&lt; gutxienekoLuzera) dituzten hitz guztiak zerrendatik ezabatzen ditu (kontuz indizeekin elementuak ezabatzean).</div>
+            <table class="details-table">
+                <tr>
+                    <th>Parametroak</th>
+                    <td>
+                        <span class="code-inline">ArrayList&lt;String&gt; hitzak</span>: aztertu eta aldatu beharreko String ArrayLista.<br>
+                        <span class="code-inline">int gutxienekoLuzera</span>: hitzak mantentzeko behar duen gutxieneko luzera.
+                    </td>
+                </tr>
+                <tr>
+                    <th>Emaitza</th>
+                    <td>Ezabatutako hitzen kopurua. <span class="code-inline">0</span> zerrenda nulua bada.</td>
+                </tr>
+                <tr>
+                    <th>Adibideak</th>
+                    <td>
+                        <ul>
+                            <li><span class="code-inline">ezabatuLuzeraTxikikoak(["Kaixo", "Ni", "Zu", "Euskara", "Ba"], 3)</span> &rarr; <span class="code-inline">3</span> (zerrenda: <span class="code-inline">["Kaixo", "Euskara"]</span>)</li>
+                            <li><span class="code-inline">ezabatuLuzeraTxikikoak(["Java", "Python"], 3)</span> &rarr; <span class="code-inline">0</span></li>
+                            <li><span class="code-inline">ezabatuLuzeraTxikikoak(null, 3)</span> &rarr; <span class="code-inline">0</span></li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Ariketa 3 -->
+        <div class="exercise-card">
+            <div class="exercise-header">3. Ariketa: bilatuHitzLuzeena</div>
+            <div class="exercise-signature">public static String bilatuHitzLuzeena(ArrayList&lt;String&gt; hitzak)</div>
+            <div class="exercise-description">Zerrendako hitzik luzeena aurkitzen du. Berdinketa badago, lehenengo agertzen dena bueltatzen du.</div>
+            <table class="details-table">
+                <tr>
+                    <th>Parametroak</th>
+                    <td><span class="code-inline">ArrayList&lt;String&gt; hitzak</span>: aztertu nahi den String ArrayLista.</td>
+                </tr>
+                <tr>
+                    <th>Emaitza</th>
+                    <td>Hitzik luzeena. <span class="code-inline">null</span> zerrenda nulua edo hutsik badago.</td>
+                </tr>
+                <tr>
+                    <th>Adibideak</th>
+                    <td>
+                        <ul>
+                            <li><span class="code-inline">bilatuHitzLuzeena(["katua", "txakurra", "arraina"])</span> &rarr; <span class="code-inline">"txakurra"</span></li>
+                            <li><span class="code-inline">bilatuHitzLuzeena(["bat", "hiru", "bost"])</span> &rarr; <span class="code-inline">"hiru"</span></li>
+                            <li><span class="code-inline">bilatuHitzLuzeena([])</span> &rarr; <span class="code-inline">null</span></li>
+                            <li><span class="code-inline">bilatuHitzLuzeena(null)</span> &rarr; <span class="code-inline">null</span></li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Ariketa 4 -->
+        <div class="exercise-card">
+            <div class="exercise-header">4. Ariketa: bihurtuMaiuskulara</div>
+            <div class="exercise-signature">public static ArrayList&lt;String&gt; bihurtuMaiuskulara(ArrayList&lt;String&gt; hitzak)</div>
+            <div class="exercise-description">Jatorrizko zerrendako hitz guztiak maiuskulara bihurtuta dituen ArrayList BERRI bat bueltatzen du. Jatorrizko zerrenda ez da aldatu behar.</div>
+            <table class="details-table">
+                <tr>
+                    <th>Parametroak</th>
+                    <td><span class="code-inline">ArrayList&lt;String&gt; hitzak</span>: jatorrizko String ArrayLista.</td>
+                </tr>
+                <tr>
+                    <th>Emaitza</th>
+                    <td>Maiuskulaz dauden hitzen ArrayList berria. Zerrenda hutsa (<span class="code-inline">[]</span>) jatorrizkoa nulua bada.</td>
+                </tr>
+                <tr>
+                    <th>Adibideak</th>
+                    <td>
+                        <ul>
+                            <li><span class="code-inline">bihurtuMaiuskulara(["kaixo", "Mundu"])</span> &rarr; <span class="code-inline">["KAIXO", "MUNDU"]</span></li>
+                            <li><span class="code-inline">bihurtuMaiuskulara(null)</span> &rarr; <span class="code-inline">[]</span></li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Ariketa 5 -->
+        <div class="exercise-card">
+            <div class="exercise-header">5. Ariketa: zenbatuHasieraLetra</div>
+            <div class="exercise-signature">public static int zenbatuHasieraLetra(ArrayList&lt;String&gt; hitzak, char letra)</div>
+            <div class="exercise-description">Adierazitako letraz hasten diren zenbat hitz dauden zenbatzen du (maiuskulak eta minuskulak bereizi gabe).</div>
+            <table class="details-table">
+                <tr>
+                    <th>Parametroak</th>
+                    <td>
+                        <span class="code-inline">ArrayList&lt;String&gt; hitzak</span>: String ArrayLista.<br>
+                        <span class="code-inline">char letra</span>: bilatu nahi den hasierako karakterea.
+                    </td>
+                </tr>
+                <tr>
+                    <th>Emaitza</th>
+                    <td>Letra horrekin hasten diren hitzen kopurua. <span class="code-inline">0</span> zerrenda nulua edo hutsik badago.</td>
+                </tr>
+                <tr>
+                    <th>Adibideak</th>
+                    <td>
+                        <ul>
+                            <li><span class="code-inline">zenbatuHasieraLetra(["Amaia", "ander", "Jon", "Aitor"], 'a')</span> &rarr; <span class="code-inline">3</span></li>
+                            <li><span class="code-inline">zenbatuHasieraLetra(["Jon", "Mikel"], 'a')</span> &rarr; <span class="code-inline">0</span></li>
+                            <li><span class="code-inline">zenbatuHasieraLetra(null, 'a')</span> &rarr; <span class="code-inline">0</span></li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Ariketa 6 -->
+        <div class="exercise-card">
+            <div class="exercise-header">6. Ariketa: ordezkatuHitza</div>
+            <div class="exercise-signature">public static int ordezkatuHitza(ArrayList&lt;String&gt; hitzak, String zaharra, String berria)</div>
+            <div class="exercise-description">Zerrendan agertzen diren <span class="code-inline">zaharra</span> hitz guztiak <span class="code-inline">berria</span> hitzarekin ordezkatzen ditu zerrendan bertan.</div>
+            <table class="details-table">
+                <tr>
+                    <th>Parametroak</th>
+                    <td>
+                        <span class="code-inline">ArrayList&lt;String&gt; hitzak</span>: aldatu nahi den String ArrayLista.<br>
+                        <span class="code-inline">String zaharra</span>: ordezkatu nahi den hitza.<br>
+                        <span class="code-inline">String berria</span>: jarri nahi den hitz berria.
+                    </td>
+                </tr>
+                <tr>
+                    <th>Emaitza</th>
+                    <td>Egindako ordezkapen kopurua. <span class="code-inline">0</span> parametroren bat nulua bada.</td>
+                </tr>
+                <tr>
+                    <th>Adibideak</th>
+                    <td>
+                        <ul>
+                            <li><span class="code-inline">ordezkatuHitza(["gorria", "urdina", "gorria"], "gorria", "horia")</span> &rarr; <span class="code-inline">2</span> (zerrenda: <span class="code-inline">["horia", "urdina", "horia"]</span>)</li>
+                            <li><span class="code-inline">ordezkatuHitza(["urdina"], "gorria", "horia")</span> &rarr; <span class="code-inline">0</span></li>
+                            <li><span class="code-inline">ordezkatuHitza(null, "a", "b")</span> &rarr; <span class="code-inline">0</span></li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Ariketa 7 -->
+        <div class="exercise-card">
+            <div class="exercise-header">7. Ariketa: bateratuErrepikatuGabe</div>
+            <div class="exercise-signature">public static ArrayList&lt;String&gt; bateratuErrepikatuGabe(ArrayList&lt;String&gt; z1, ArrayList&lt;String&gt; z2)</div>
+            <div class="exercise-description">Bi zerrendetako elementu guztiak elkartzen ditu ArrayList BERRI batean, errepikapenik gabe eta agerpen-ordena mantenduz.</div>
+            <table class="details-table">
+                <tr>
+                    <th>Parametroak</th>
+                    <td>
+                        <span class="code-inline">ArrayList&lt;String&gt; z1</span>: lehenengo String ArrayLista.<br>
+                        <span class="code-inline">ArrayList&lt;String&gt; z2</span>: bigarren String ArrayLista.
+                    </td>
+                </tr>
+                <tr>
+                    <th>Emaitza</th>
+                    <td>Bi zerrenden batasuna duen ArrayList berria (errepikaturik gabe).</td>
+                </tr>
+                <tr>
+                    <th>Adibideak</th>
+                    <td>
+                        <ul>
+                            <li><span class="code-inline">bateratuErrepikatuGabe(["A", "B", "A"], ["B", "C", "D"])</span> &rarr; <span class="code-inline">["A", "B", "C", "D"]</span></li>
+                            <li><span class="code-inline">bateratuErrepikatuGabe(null, ["X", "X"])</span> &rarr; <span class="code-inline">["X"]</span></li>
+                            <li><span class="code-inline">bateratuErrepikatuGabe(null, null)</span> &rarr; <span class="code-inline">[]</span></li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- B BLOKEA -->
+        <div class="section-header">B BLOKEA: ZENBAKI ZERRENDAK (Integer eta Double)</div>
+        <div class="section-desc">Bloke honetan bilgarri-klaseekin (<span class="code-inline">Integer</span> eta <span class="code-inline">Double</span>) lan egingo da, <span class="code-inline">autoboxing</span> / <span class="code-inline">unboxing</span> eta <span class="code-inline">remove(Object)</span> vs <span class="code-inline">remove(int)</span> bereizketa landuz.</div>
+
+        <!-- Ariketa 8 -->
+        <div class="exercise-card">
+            <div class="exercise-header">8. Ariketa: batuBikoitiak</div>
+            <div class="exercise-signature">public static int batuBikoitiak(ArrayList&lt;Integer&gt; zenbakiak)</div>
+            <div class="exercise-description">Zerrendako zenbaki bikoiti guztien batura kalkulatzen du.</div>
+            <table class="details-table">
+                <tr>
+                    <th>Parametroak</th>
+                    <td><span class="code-inline">ArrayList&lt;Integer&gt; zenbakiak</span>: Integer ArrayLista.</td>
+                </tr>
+                <tr>
+                    <th>Emaitza</th>
+                    <td>Zenbaki bikoitien batura. <span class="code-inline">0</span> zerrenda nulua edo hutsik badago.</td>
+                </tr>
+                <tr>
+                    <th>Adibideak</th>
+                    <td>
+                        <ul>
+                            <li><span class="code-inline">batuBikoitiak([1, 2, 3, 4, 6])</span> &rarr; <span class="code-inline">12</span></li>
+                            <li><span class="code-inline">batuBikoitiak([1, 3, 5])</span> &rarr; <span class="code-inline">0</span></li>
+                            <li><span class="code-inline">batuBikoitiak(null)</span> &rarr; <span class="code-inline">0</span></li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Ariketa 9 -->
+        <div class="exercise-card">
+            <div class="exercise-header">9. Ariketa: ezabatuBalioGuztiak</div>
+            <div class="exercise-signature">public static boolean ezabatuBalioGuztiak(ArrayList&lt;Integer&gt; zenbakiak, int balioa)</div>
+            <div class="exercise-description">Zerrendatik adierazitako zenbakiaren agerpen guztiak ezabatzen ditu (kontuz <span class="code-inline">remove(int indizea)</span> eta <span class="code-inline">remove(Object balioa)</span> bereiztean).</div>
+            <table class="details-table">
+                <tr>
+                    <th>Parametroak</th>
+                    <td>
+                        <span class="code-inline">ArrayList&lt;Integer&gt; zenbakiak</span>: Integer ArrayLista.<br>
+                        <span class="code-inline">int balioa</span>: ezabatu nahi den zenbaki osoa.
+                    </td>
+                </tr>
+                <tr>
+                    <th>Emaitza</th>
+                    <td><span class="code-inline">true</span> gutxienez elementu bat ezabatu bada; <span class="code-inline">false</span> bestela edo zerrenda nulua bada.</td>
+                </tr>
+                <tr>
+                    <th>Adibideak</th>
+                    <td>
+                        <ul>
+                            <li><span class="code-inline">ezabatuBalioGuztiak([2, 5, 2, 8, 2], 2)</span> &rarr; <span class="code-inline">true</span> (zerrenda: <span class="code-inline">[5, 8]</span>)</li>
+                            <li><span class="code-inline">ezabatuBalioGuztiak([1, 3, 5], 2)</span> &rarr; <span class="code-inline">false</span></li>
+                            <li><span class="code-inline">ezabatuBalioGuztiak(null, 2)</span> &rarr; <span class="code-inline">false</span></li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Ariketa 10 -->
+        <div class="exercise-card">
+            <div class="exercise-header">10. Ariketa: batezBestekoaGainditzenDutenak</div>
+            <div class="exercise-signature">public static ArrayList&lt;Double&gt; batezBestekoaGainditzenDutenak(ArrayList&lt;Double&gt; notak)</div>
+            <div class="exercise-description">Zerrendako noten batez besteko aritmetikoa kalkulatzen du, eta batez besteko hori baino hertsiki handiagoak (&gt; batezBestekoa) diren notekin ArrayList BERRI bat bueltatzen du.</div>
+            <table class="details-table">
+                <tr>
+                    <th>Parametroak</th>
+                    <td><span class="code-inline">ArrayList&lt;Double&gt; notak</span>: Double motako noten ArrayLista.</td>
+                </tr>
+                <tr>
+                    <th>Emaitza</th>
+                    <td>Batez bestekoa gainditzen duten noten ArrayList berria. Zerrenda hutsa (<span class="code-inline">[]</span>) nulua edo hutsik badago.</td>
+                </tr>
+                <tr>
+                    <th>Adibideak</th>
+                    <td>
+                        <ul>
+                            <li><span class="code-inline">batezBestekoaGainditzenDutenak([4.0, 6.0, 8.0])</span> &rarr; <span class="code-inline">[8.0]</span> (batez bestekoa: 6.0)</li>
+                            <li><span class="code-inline">batezBestekoaGainditzenDutenak([5.0, 5.0])</span> &rarr; <span class="code-inline">[]</span></li>
+                            <li><span class="code-inline">batezBestekoaGainditzenDutenak(null)</span> &rarr; <span class="code-inline">[]</span></li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Ariketa 11 -->
+        <div class="exercise-card">
+            <div class="exercise-header">11. Ariketa: txertatuOrdenatuta</div>
+            <div class="exercise-signature">public static void txertatuOrdenatuta(ArrayList&lt;Integer&gt; zerrendaOrdenatua, int berria)</div>
+            <div class="exercise-description">Goranzko ordenan ordenatuta dagoen zerrenda batean zenbaki berri bat txertatzen du dagokion posizioan, zerrendak ordenatuta jarrai dezan.</div>
+            <table class="details-table">
+                <tr>
+                    <th>Parametroak</th>
+                    <td>
+                        <span class="code-inline">ArrayList&lt;Integer&gt; zerrendaOrdenatua</span>: goranzko ordenan dagoen Integer ArrayLista.<br>
+                        <span class="code-inline">int berria</span>: txertatu nahi den zenbakia.
+                    </td>
+                </tr>
+                <tr>
+                    <th>Emaitza</th>
+                    <td><span class="code-inline">void</span> (zerrenda bera aldatzen du <span class="code-inline">add(indizea, berria)</span> erabiliz).</td>
+                </tr>
+                <tr>
+                    <th>Adibideak</th>
+                    <td>
+                        <ul>
+                            <li><span class="code-inline">txertatuOrdenatuta([10, 20, 40, 50], 30)</span> &rarr; zerrenda: <span class="code-inline">[10, 20, 30, 40, 50]</span></li>
+                            <li><span class="code-inline">txertatuOrdenatuta([10, 20], 5)</span> &rarr; zerrenda: <span class="code-inline">[5, 10, 20]</span></li>
+                            <li><span class="code-inline">txertatuOrdenatuta([], 7)</span> &rarr; zerrenda: <span class="code-inline">[7]</span></li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Ariketa 12 -->
+        <div class="exercise-card">
+            <div class="exercise-header">12. Ariketa: bigarrenHandiena</div>
+            <div class="exercise-signature">public static int bigarrenHandiena(ArrayList&lt;Integer&gt; zenbakiak)</div>
+            <div class="exercise-description">Zerrendako bigarren balio handiena (desberdina) aurkitzen du.</div>
+            <table class="details-table">
+                <tr>
+                    <th>Parametroak</th>
+                    <td><span class="code-inline">ArrayList&lt;Integer&gt; zenbakiak</span>: Integer ArrayLista.</td>
+                </tr>
+                <tr>
+                    <th>Emaitza</th>
+                    <td>Bigarren zenbaki handiena. <span class="code-inline">Integer.MIN_VALUE</span> nulua bada edo 2 balio desberdin baino gutxiago baditu.</td>
+                </tr>
+                <tr>
+                    <th>Adibideak</th>
+                    <td>
+                        <ul>
+                            <li><span class="code-inline">bigarrenHandiena([10, 5, 20, 8])</span> &rarr; <span class="code-inline">10</span></li>
+                            <li><span class="code-inline">bigarrenHandiena([20, 20, 15, 10])</span> &rarr; <span class="code-inline">15</span></li>
+                            <li><span class="code-inline">bigarrenHandiena([5, 5, 5])</span> &rarr; <span class="code-inline">Integer.MIN_VALUE</span> (-2147483648)</li>
+                            <li><span class="code-inline">bigarrenHandiena(null)</span> &rarr; <span class="code-inline">Integer.MIN_VALUE</span> (-2147483648)</li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Ariketa 13 -->
+        <div class="exercise-card">
+            <div class="exercise-header">13. Ariketa: aplikatuDeskontua</div>
+            <div class="exercise-signature">public static void aplikatuDeskontua(ArrayList&lt;Double&gt; prezioak, double ehunekoa)</div>
+            <div class="exercise-description">Zerrendako prezio guztiei ehuneko deskontu bat aplikatzen die zerrendan bertan. Ehunekoa 0 baino txikiagoa edo 100 baino handiagoa bada, ez du aldaketarik egiten.</div>
+            <table class="details-table">
+                <tr>
+                    <th>Parametroak</th>
+                    <td>
+                        <span class="code-inline">ArrayList&lt;Double&gt; prezioak</span>: Double motako prezioen ArrayLista.<br>
+                        <span class="code-inline">double ehunekoa</span>: deskontuaren ehunekoa (0.0 eta 100.0 artekoa).
+                    </td>
+                </tr>
+                <tr>
+                    <th>Emaitza</th>
+                    <td><span class="code-inline">void</span> (zerrendako elementuak eguneratzen ditu <span class="code-inline">set()</span> erabiliz).</td>
+                </tr>
+                <tr>
+                    <th>Adibideak</th>
+                    <td>
+                        <ul>
+                            <li><span class="code-inline">aplikatuDeskontua([100.0, 50.0], 20.0)</span> &rarr; zerrenda: <span class="code-inline">[80.0, 40.0]</span></li>
+                            <li><span class="code-inline">aplikatuDeskontua([100.0], -5.0)</span> &rarr; zerrenda: <span class="code-inline">[100.0]</span></li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Ariketa 14 -->
+        <div class="exercise-card">
+            <div class="exercise-header">14. Ariketa: iragaziTartea</div>
+            <div class="exercise-signature">public static ArrayList&lt;Integer&gt; iragaziTartea(ArrayList&lt;Integer&gt; zenbakiak, int min, int max)</div>
+            <div class="exercise-description"><span class="code-inline">[min, max]</span> tartean dauden zenbakiekin (biak barne) ArrayList BERRI bat bueltatzen du.</div>
+            <table class="details-table">
+                <tr>
+                    <th>Parametroak</th>
+                    <td>
+                        <span class="code-inline">ArrayList&lt;Integer&gt; zenbakiak</span>: jatorrizko Integer ArrayLista.<br>
+                        <span class="code-inline">int min</span>: gutxieneko balioa (barne).<br>
+                        <span class="code-inline">int max</span>: gehienezko balioa (barne).
+                    </td>
+                </tr>
+                <tr>
+                    <th>Emaitza</th>
+                    <td>Tartean dauden zenbakien ArrayList berria. Zerrenda hutsa (<span class="code-inline">[]</span>) nulua bada.</td>
+                </tr>
+                <tr>
+                    <th>Adibideak</th>
+                    <td>
+                        <ul>
+                            <li><span class="code-inline">iragaziTartea([5, 10, 15, 20, 25], 10, 20)</span> &rarr; <span class="code-inline">[10, 15, 20]</span></li>
+                            <li><span class="code-inline">iragaziTartea(null, 10, 20)</span> &rarr; <span class="code-inline">[]</span></li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- C BLOKEA -->
+        <div class="section-header">C BLOKEA: KLASE PROPIOEN ZERRENDAK (Ikaslea eta Produktua)</div>
+        <div class="section-desc">Bloke honetako 15-20 ariketak egin aurretik, ikasleak ondorengo bi klaseak (<span class="code-inline">Ikaslea</span> eta <span class="code-inline">Produktua</span>) eraiki behar ditu <span class="code-inline">arrayList</span> paketearen barruan.</div>
+
+        <!-- Klasea 1: Ikaslea -->
+        <div class="exercise-card">
+            <div class="exercise-header">Klasea: Ikaslea.java</div>
+            <div class="exercise-signature">public class Ikaslea</div>
+            <div class="exercise-description">Ikasle baten datuak gordetzen dituen klasea: izena, adina eta batez besteko nota.</div>
+            <table class="details-table">
+                <tr>
+                    <th>Atributu pribatuak</th>
+                    <td>
+                        <span class="code-inline">private String izena</span><br>
+                        <span class="code-inline">private int adina</span><br>
+                        <span class="code-inline">private double nota</span>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Eraikitzailea</th>
+                    <td><span class="code-inline">public Ikaslea(String izena, int adina, double nota)</span>: atributu guztiak hasieratzen ditu.</td>
+                </tr>
+                <tr>
+                    <th>Metodoak</th>
+                    <td>
+                        <ul>
+                            <li><span class="code-inline">public String getIzena()</span> &rarr; ikaslearen izena bueltatzen du.</li>
+                            <li><span class="code-inline">public int getAdina()</span> &rarr; ikaslearen adina bueltatzen du.</li>
+                            <li><span class="code-inline">public double getNota()</span> &rarr; ikaslearen nota bueltatzen du.</li>
+                            <li><span class="code-inline">public void setNota(double nota)</span> &rarr; ikaslearen nota eguneratzen du.</li>
+                            <li><span class="code-inline">public boolean gainditutaDago()</span> &rarr; <span class="code-inline">true</span> bueltatzen du <span class="code-inline">nota &gt;= 5.0</span> bada; <span class="code-inline">false</span> bestela.</li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Klasea 2: Produktua -->
+        <div class="exercise-card">
+            <div class="exercise-header">Klasea: Produktua.java</div>
+            <div class="exercise-signature">public class Produktua</div>
+            <div class="exercise-description">Denda bateko produktu baten datuak gordetzen dituen klasea: izena, unitateko prezioa eta biltegiko stock kopurua.</div>
+            <table class="details-table">
+                <tr>
+                    <th>Atributu pribatuak</th>
+                    <td>
+                        <span class="code-inline">private String izena</span><br>
+                        <span class="code-inline">private double prezioa</span><br>
+                        <span class="code-inline">private int stock</span>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Eraikitzailea</th>
+                    <td><span class="code-inline">public Produktua(String izena, double prezioa, int stock)</span>: atributu guztiak hasieratzen ditu.</td>
+                </tr>
+                <tr>
+                    <th>Metodoak</th>
+                    <td>
+                        <ul>
+                            <li><span class="code-inline">public String getIzena()</span> &rarr; produktuaren izena bueltatzen du.</li>
+                            <li><span class="code-inline">public double getPrezioa()</span> &rarr; produktuaren prezioa bueltatzen du.</li>
+                            <li><span class="code-inline">public void setPrezioa(double prezioa)</span> &rarr; produktuaren prezioa eguneratzen du.</li>
+                            <li><span class="code-inline">public int getStock()</span> &rarr; produktuaren stocka bueltatzen du.</li>
+                            <li><span class="code-inline">public void setStock(int stock)</span> &rarr; produktuaren stocka eguneratzen du.</li>
+                            <li><span class="code-inline">public double guztizkoBalioa()</span> &rarr; stock osoaren balio ekonomikoa kalkulatzen du (<span class="code-inline">prezioa * stock</span>).</li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Ariketa 15 -->
+        <div class="exercise-card">
+            <div class="exercise-header">15. Ariketa: lortuGaindituenIzenak</div>
+            <div class="exercise-signature">public static ArrayList&lt;String&gt; lortuGaindituenIzenak(ArrayList&lt;Ikaslea&gt; ikasleak)</div>
+            <div class="exercise-description">Irakasgaia gainditu duten ikasleen (<span class="code-inline">nota &gt;= 5.0</span>) izenekin <span class="code-inline">ArrayList&lt;String&gt;</span> BERRI bat bueltatzen du.</div>
+            <table class="details-table">
+                <tr>
+                    <th>Parametroak</th>
+                    <td><span class="code-inline">ArrayList&lt;Ikaslea&gt; ikasleak</span>: Ikaslea objektuen ArrayLista.</td>
+                </tr>
+                <tr>
+                    <th>Emaitza</th>
+                    <td>Gainditutako ikasleen izenen ArrayLista. Zerrenda hutsa (<span class="code-inline">[]</span>) zerrenda nulua bada.</td>
+                </tr>
+                <tr>
+                    <th>Adibideak</th>
+                    <td>
+                        <ul>
+                            <li><span class="code-inline">lortuGaindituenIzenak([Ikaslea("Ane",19,8.5), Ikaslea("Mikel",20,4.2), Ikaslea("Sara",19,5.0)])</span> &rarr; <span class="code-inline">["Ane", "Sara"]</span></li>
+                            <li><span class="code-inline">lortuGaindituenIzenak(null)</span> &rarr; <span class="code-inline">[]</span></li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Ariketa 16 -->
+        <div class="exercise-card">
+            <div class="exercise-header">16. Ariketa: ikasleOnena</div>
+            <div class="exercise-signature">public static Ikaslea ikasleOnena(ArrayList&lt;Ikaslea&gt; ikasleak)</div>
+            <div class="exercise-description">Notarik altuena duen <span class="code-inline">Ikaslea</span> objektua bueltatzen du. Berdinketa badago, lehenengo agertzen dena.</div>
+            <table class="details-table">
+                <tr>
+                    <th>Parametroak</th>
+                    <td><span class="code-inline">ArrayList&lt;Ikaslea&gt; ikasleak</span>: Ikaslea objektuen ArrayLista.</td>
+                </tr>
+                <tr>
+                    <th>Emaitza</th>
+                    <td>Notarik altuena duen <span class="code-inline">Ikaslea</span> objektua. <span class="code-inline">null</span> zerrenda nulua edo hutsik badago.</td>
+                </tr>
+                <tr>
+                    <th>Adibideak</th>
+                    <td>
+                        <ul>
+                            <li><span class="code-inline">ikasleOnena([Ikaslea("Ane",19,7.5), Ikaslea("Mikel",20,9.2), Ikaslea("Sara",19,9.2)])</span> &rarr; <span class="code-inline">Mikel</span> (9.2)</li>
+                            <li><span class="code-inline">ikasleOnena([])</span> &rarr; <span class="code-inline">null</span></li>
+                            <li><span class="code-inline">ikasleOnena(null)</span> &rarr; <span class="code-inline">null</span></li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Ariketa 17 -->
+        <div class="exercise-card">
+            <div class="exercise-header">17. Ariketa: igoNotaGuztiei</div>
+            <div class="exercise-signature">public static void igoNotaGuztiei(ArrayList&lt;Ikaslea&gt; ikasleak, double puntuak)</div>
+            <div class="exercise-description">Zerrendako ikasle guztiei adierazitako puntuak gehitzen dizkie notan, baina <span class="code-inline">10.0</span> muga gainditu gabe. <span class="code-inline">puntuak &lt;= 0</span> badira edo zerrenda nulua bada, ez du ezer egiten.</div>
+            <table class="details-table">
+                <tr>
+                    <th>Parametroak</th>
+                    <td>
+                        <span class="code-inline">ArrayList&lt;Ikaslea&gt; ikasleak</span>: Ikaslea objektuen ArrayLista.<br>
+                        <span class="code-inline">double puntuak</span>: gehitu nahi den puntu kopurua (&gt; 0).
+                    </td>
+                </tr>
+                <tr>
+                    <th>Emaitza</th>
+                    <td><span class="code-inline">void</span> (ikasle bakoitzaren nota eguneratzen du <span class="code-inline">setNota()</span> erabiliz).</td>
+                </tr>
+                <tr>
+                    <th>Adibideak</th>
+                    <td>
+                        <ul>
+                            <li><span class="code-inline">igoNotaGuztiei([Ikaslea("Ane",19,8.0), Ikaslea("Mikel",20,9.5)], 1.0)</span> &rarr; Ane: <span class="code-inline">9.0</span>, Mikel: <span class="code-inline">10.0</span></li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Ariketa 18 -->
+        <div class="exercise-card">
+            <div class="exercise-header">18. Ariketa: inbentarioarenBalioTotala</div>
+            <div class="exercise-signature">public static double inbentarioarenBalioTotala(ArrayList&lt;Produktua&gt; produktuak)</div>
+            <div class="exercise-description">Biltegiko produktu guztien balio ekonomiko totala kalkulatzen du (produktu bakoitzaren <span class="code-inline">prezioa * stock</span> batura).</div>
+            <table class="details-table">
+                <tr>
+                    <th>Parametroak</th>
+                    <td><span class="code-inline">ArrayList&lt;Produktua&gt; produktuak</span>: Produktua objektuen ArrayLista.</td>
+                </tr>
+                <tr>
+                    <th>Emaitza</th>
+                    <td>Inbentario osoaren balioa. <span class="code-inline">0.0</span> zerrenda nulua edo hutsik badago.</td>
+                </tr>
+                <tr>
+                    <th>Adibideak</th>
+                    <td>
+                        <ul>
+                            <li><span class="code-inline">inbentarioarenBalioTotala([Produktua("Teklatua",25.0,4), Produktua("Sagua",15.0,2)])</span> &rarr; <span class="code-inline">130.0</span></li>
+                            <li><span class="code-inline">inbentarioarenBalioTotala(null)</span> &rarr; <span class="code-inline">0.0</span></li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Ariketa 19 -->
+        <div class="exercise-card">
+            <div class="exercise-header">19. Ariketa: erosiProduktua</div>
+            <div class="exercise-signature">public static boolean erosiProduktua(ArrayList&lt;Produktua&gt; produktuak, String izena, int kantitatea)</div>
+            <div class="exercise-description">Izenaren arabera produktua bilatzen du (maiuskulak/minuskulak bereizi gabe). Produktua existitzen bada eta stock nahikoa badu (<span class="code-inline">stock &gt;= kantitatea</span> eta <span class="code-inline">kantitatea &gt; 0</span>), stocka murrizten du eta <span class="code-inline">true</span> bueltatzen du.</div>
+            <table class="details-table">
+                <tr>
+                    <th>Parametroak</th>
+                    <td>
+                        <span class="code-inline">ArrayList&lt;Produktua&gt; produktuak</span>: Produktua objektuen ArrayLista.<br>
+                        <span class="code-inline">String izena</span>: erosi nahi den produktuaren izena.<br>
+                        <span class="code-inline">int kantitatea</span>: erosi nahi den unitate kopurua.
+                    </td>
+                </tr>
+                <tr>
+                    <th>Emaitza</th>
+                    <td><span class="code-inline">true</span> erosketa burutu bada; <span class="code-inline">false</span> produktua ez badago, stock nahikorik ez badago edo datuak okerrak badira.</td>
+                </tr>
+                <tr>
+                    <th>Adibideak</th>
+                    <td>
+                        <ul>
+                            <li><span class="code-inline">erosiProduktua([Produktua("Teklatua",25.0,5)], "teklatua", 3)</span> &rarr; <span class="code-inline">true</span> (stock berria: <span class="code-inline">2</span>)</li>
+                            <li><span class="code-inline">erosiProduktua([Produktua("Teklatua",25.0,2)], "teklatua", 4)</span> &rarr; <span class="code-inline">false</span> (stocka <span class="code-inline">2</span> izaten jarraitzen du)</li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Ariketa 20 -->
+        <div class="exercise-card">
+            <div class="exercise-header">20. Ariketa: stockGutxikoProduktuak</div>
+            <div class="exercise-signature">public static ArrayList&lt;Produktua&gt; stockGutxikoProduktuak(ArrayList&lt;Produktua&gt; produktuak, int muga)</div>
+            <div class="exercise-description">Adierazitako muga baino stock gutxiago (&lt; muga) duten produktuekin <span class="code-inline">ArrayList&lt;Produktua&gt;</span> BERRI bat bueltatzen du.</div>
+            <table class="details-table">
+                <tr>
+                    <th>Parametroak</th>
+                    <td>
+                        <span class="code-inline">ArrayList&lt;Produktua&gt; produktuak</span>: Produktua objektuen ArrayLista.<br>
+                        <span class="code-inline">int muga</span>: gutxieneko stock atalasea.
+                    </td>
+                </tr>
+                <tr>
+                    <th>Emaitza</th>
+                    <td>Stock gutxiko produktuen ArrayList berria. Zerrenda hutsa (<span class="code-inline">[]</span>) zerrenda nulua bada.</td>
+                </tr>
+                <tr>
+                    <th>Adibideak</th>
+                    <td>
+                        <ul>
+                            <li><span class="code-inline">stockGutxikoProduktuak([Produktua("A",10,2), Produktua("B",10,5), Produktua("C",10,1)], 5)</span> &rarr; <span class="code-inline">[A, C]</span></li>
+                            <li><span class="code-inline">stockGutxikoProduktuak(null, 5)</span> &rarr; <span class="code-inline">[]</span></li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+</body>
+</html>
