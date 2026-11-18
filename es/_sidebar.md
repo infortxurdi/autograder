@@ -5,6 +5,6 @@
   * [Bienvenida](/es/)
 
 * **Ejercicios Java**
-  * [Estructuras de control](/es/estructuras_control.html)
-  * [Arrays](/es/array.html)
-  * [ArrayList](/es/arrayList.html)
+  * [Estructuras de control](/es/estructuras_control.html ':ignore')
+  * [Arrays](/es/array.html ':ignore')
+  * [ArrayList](/es/arrayList.html ':ignore')
