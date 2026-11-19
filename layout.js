@@ -37,7 +37,8 @@ document.addEventListener("DOMContentLoaded", () => {
           { label: "Kontrol egiturak", href: "kontrol_egiturak.html" },
           { label: "Arrayak", href: "array.html" },
           { label: "POO (Klaseak eta Objektuak)", href: "poo.html" },
-          { label: "ArrayListak", href: "arrayList.html" }
+          { label: "ArrayListak", href: "arrayList.html" },
+          { label: "ArrayList Luzeak", href: "arrayListLuzeak.html" }
         ]
       }
     ],

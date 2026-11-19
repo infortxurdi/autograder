@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="eu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Programazio Ariketak - Auto-denda (POO)</title>
+    <link rel="stylesheet" href="../styles.css">
+    <script src="../layout.js" defer></script>
+</head>
+<body>
+
+    <div class="container">
+        <h1>ArrayList Ariketa Luzeak</h1>
+
+        <div class="header-container">
+            <div class="header-title">Auto Denda</div>
+            <div class="header-subtitle">Objektuei Bideratutako Programazioa: Auto-denda baten kudeaketa</div>
+            <div class="meta-info">
+                <div><strong>Paketea:</strong> <span class="code-inline" style="color: #ffffff; background: #2b6cb0;">autodenda</span></div>
+                <div><strong>Klaseak:</strong> <span class="code-inline" style="color: #ffffff; background: #2b6cb0;">Autoa</span>, <span class="code-inline" style="color: #ffffff; background: #2b6cb0;">Saltzailea</span>, <span class="code-inline" style="color: #ffffff; background: #2b6cb0;">Denda</span>, <span class="code-inline" style="color: #ffffff; background: #2b6cb0;">Main</span></div>
+            </div>
+        </div>
+
+
+        <div class="instructions-box">
+            <div class="instructions-title">📋 Jarraibideak</div>
+            Auto-denda bat kudeatzeko programa bat garatu behar duzu. Zuzenketa automatikoak (<span class="code-inline">Autograder</span>) behar bezala funtziona dezan, ezinbestekoa da klaseen, atributuen, eraikitzaileen eta metodoen izen zein parametro-motak beheko zehaztapenetan agertzen diren bezala errespetatzea. Azkenik, osatu <span class="code-inline">Main.java</span> klasea sistema osoa probatzeko.
+            <div class="download-area"><a href="/eus/zips/autodenda.zip" class="download-btn" download> DESKARGATU </a></div>
+        </div>
+
+        <!-- 1. BLOKEA: AUTOA -->
+        <div class="section-header">1. BLOKEA: AUTOA KLASEA (Autoa.java)</div>
+        <div class="section-desc">Dendako autoen oinarrizko informazioa, deskontuak eta eskaintzen iraungitze-datak (<span class="code-inline">java.util.Date</span>) kudeatzen dituen klasea.</div>
+
+        <div class="exercise-card">
+            <div class="exercise-header">Klasearen egitura eta atributuak: Autoa</div>
+            <div class="exercise-signature">public class Autoa</div>
+            <div class="exercise-description">Auto bakoitzak bere identifikazio-datuak, oinarrizko prezioa eta balizko eskaintza baten datuak (ehuneko deskontua eta iraungitze-data) gordetzen ditu.</div>
+            <table class="details-table">
+                <tr>
+                    <th>Atributu pribatuak</th>
+                    <td>
+                        <span class="code-inline">private String matrikula</span>: autoaren matrikula.<br>
+                        <span class="code-inline">private String modeloa</span>: autoaren marka eta modeloa.<br>
+                        <span class="code-inline">private double prezioa</span>: eskaintzarik gabeko oinarrizko prezioa.<br>
+                        <span class="code-inline">private int deskontua</span>: deskontuaren ehunekoa (adib. <span class="code-inline">15</span> bada, %15). Hasieran <span class="code-inline">0</span>.<br>
+                        <span class="code-inline">private Date deskontuIraungitze</span>: eskaintzaren amaiera-data (<span class="code-inline">java.util.Date</span>). Hasieran <span class="code-inline">null</span>.
+                    </td>
+                </tr>
+                <tr>
+                    <th>Eraikitzailea</th>
+                    <td><span class="code-inline">public Autoa(String matrikula, String modeloa, double prezioa)</span>: jasotako parametroak esleitzen ditu eta eskaintza hasieratzen du (<span class="code-inline">deskontua = 0</span>, <span class="code-inline">deskontuIraungitze = null</span>).</td>
+                </tr>
+                <tr>
+                    <th>Getter / Setter-ak</th>
+                    <td>
+                        Atributu guztien ohiko getter eta setter metodoak (<span class="code-inline">getMatrikula</span>, <span class="code-inline">getModeloa</span>, <span class="code-inline">getPrezioa</span>, <span class="code-inline">getDeskontua</span>, <span class="code-inline">setDeskontua</span>, <span class="code-inline">getDeskontuIraungitze</span>, <span class="code-inline">setDeskontuIraungitze</span>...).
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="exercise-card">
+            <div class="exercise-header">1.1 Metodoa: getAzkenPrezioa</div>
+            <div class="exercise-signature">public double getAzkenPrezioa()</div>
+            <div class="exercise-description">Autoaren benetako salmenta-prezioa kalkulatzen du, eskaintza bat aktibo dagoen kontuan hartuta. Eskaintza aplikatzeko, <span class="code-inline">deskontua &gt; 0</span> izan behar da eta <span class="code-inline">deskontuIraungitze</span> data egungo unea (<span class="code-inline">new Date()</span>) baino beranduagokoa izan behar da (ez dago iraungita).</div>
+            <table class="details-table">
+                <tr>
+                    <th>Parametroak</th>
+                    <td>Ez du parametrorik jasotzen.</td>
+                </tr>
+                <tr>
+                    <th>Emaitza</th>
+                    <td>Eskaintza indarrean badago, prezioa deskontua aplikatuta (<span class="code-inline">prezioa * (1 - deskontua / 100.0)</span>); bestela, oinarrizko <span class="code-inline">prezioa</span>.</td>
+                </tr>
+                <tr>
+                    <th>Adibideak</th>
+                    <td>
+                        <ul>
+                            <li><span class="code-inline">prezioa = 20000.0</span>, <span class="code-inline">deskontua = 10</span> (indarrean) &rarr; <span class="code-inline">18000.0</span></li>
+                            <li><span class="code-inline">prezioa = 20000.0</span>, <span class="code-inline">deskontua = 25</span> (iraungita) &rarr; <span class="code-inline">20000.0</span></li>
+                            <li><span class="code-inline">prezioa = 15000.0</span>, <span class="code-inline">deskontua = 0</span> &rarr; <span class="code-inline">15000.0</span></li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- 2. BLOKEA: SALTZAILEA -->
+        <div class="section-header">2. BLOKEA: SALTZAILEA KLASEA (Saltzailea.java)</div>
+        <div class="section-desc">Dendako langileen salmentak, eskaintzen sorkuntza eta asteko lanaldiak kudeatzen dituen klasea.</div>
+
+        <div class="exercise-card">
+            <div class="exercise-header">Klasearen egitura eta atributuak: Saltzailea</div>
+            <div class="exercise-signature">public class Saltzailea</div>
+            <div class="exercise-description">Saltzaile bakoitzak bere izena, saldu dituen autoen zerrenda eta asteko 7 egunetan kontratuz lan egin behar duen ordu-kopuruen zerrenda gordetzen ditu.</div>
+            <table class="details-table">
+                <tr>
+                    <th>Atributu pribatuak</th>
+                    <td>
+                        <span class="code-inline">private String izena</span>: saltzailearen izena.<br>
+                        <span class="code-inline">private List&lt;Autoa&gt; saldutakoAutoak</span>: saltzaileak saldu dituen autoen zerrenda.<br>
+                        <span class="code-inline">private List&lt;Double&gt; lanOrduak</span>: asteko 7 egunetan (astelehenetik igandera) kontratuz lan egin behar dituen orduak adierazten dituen 7 elementuko zerrenda.
+                    </td>
+                </tr>
+                <tr>
+                    <th>Eraikitzailea</th>
+                    <td><span class="code-inline">public Saltzailea(String izena, List&lt;Double&gt; lanOrduak)</span>: izena eta lan-orduak esleitzen ditu, eta <span class="code-inline">saldutakoAutoak</span> zerrenda hutsik (<span class="code-inline">new ArrayList&lt;&gt;()</span>) hasieratzen du.</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="exercise-card">
+            <div class="exercise-header">2.1 Metodoa: salduAutoa</div>
+            <div class="exercise-signature">public void salduAutoa(Autoa autoa, Denda denda)</div>
+            <div class="exercise-description">Auto baten salmenta burutzen du: autoa dendako stocketik (<span class="code-inline">listaCoches</span>) kentzen du eta saltzailearen <span class="code-inline">saldutakoAutoak</span> zerrendara gehitzen du.</div>
+            <table class="details-table">
+                <tr>
+                    <th>Parametroak</th>
+                    <td>
+                        <span class="code-inline">Autoa autoa</span>: saldu nahi den autoa.<br>
+                        <span class="code-inline">Denda denda</span>: autoa dagoen denda.
+                    </td>
+                </tr>
+                <tr>
+                    <th>Emaitza</th>
+                    <td><span class="code-inline">void</span> (autoa dendako zerrendatik ezabatu eta saltzailearen zerrendan sartzen du).</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="exercise-card">
+            <div class="exercise-header">2.2 Metodoa: sortuEskaintza (auto bakarra eta auto-zerrenda)</div>
+            <div class="exercise-signature">public void sortuEskaintza(Autoa autoa, int deskontua)<br>public void sortuEskaintza(List&lt;Autoa&gt; autoak, int deskontua)</div>
+            <div class="exercise-description">Metodoaren gainkarga (<em>overloading</em>) erabiliz, auto bakar bati zein auto-zerrenda oso bati eskaintza ezartzen dio. Jasotako deskontua esleitzen du eta iraungitze-data <strong>egungo datatik hilabete batera</strong> (<span class="code-inline">Calendar.MONTH + 1</span>) ezartzen du.</div>
+            <table class="details-table">
+                <tr>
+                    <th>Parametroak</th>
+                    <td>
+                        <span class="code-inline">Autoa autoa</span> edo <span class="code-inline">List&lt;Autoa&gt; autoak</span>: eskaintza jasoko duen autoa edo auto-zerrenda.<br>
+                        <span class="code-inline">int deskontua</span>: aplikatuko den deskontu-ehunekoa.
+                    </td>
+                </tr>
+                <tr>
+                    <th>Emaitza</th>
+                    <td><span class="code-inline">void</span> (autoaren edo autoen <span class="code-inline">deskontua</span> eta <span class="code-inline">deskontuIraungitze</span> eguneratzen ditu).</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="exercise-card">
+            <div class="exercise-header">2.3 Metodoa: kalkulatuIrabaziak</div>
+            <div class="exercise-signature">public double kalkulatuIrabaziak()</div>
+            <div class="exercise-description">Saltzaileak bere salmentekin lortu duen diru-kopuru totala kalkulatzen du, saldutako auto bakoitzaren azken prezioa (<span class="code-inline">getAzkenPrezioa()</span>) batuz.</div>
+            <table class="details-table">
+                <tr>
+                    <th>Parametroak</th>
+                    <td>Ez du parametrorik jasotzen.</td>
+                </tr>
+                <tr>
+                    <th>Emaitza</th>
+                    <td>Saldutako auto guztien azken prezioen batura (<span class="code-inline">0.0</span> salmentarik egin ez badu).</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- 3. BLOKEA: DENDA -->
+        <div class="section-header">3. BLOKEA: DENDA KLASEA (Denda.java)</div>
+        <div class="section-desc">Dendako auto-stocka, saltzaile-taldea, eskaintzen garbiketa eta irabazi orokorrak kudeatzen dituen klasea.</div>
+
+        <div class="exercise-card">
+            <div class="exercise-header">Klasearen egitura eta atributuak: Denda</div>
+            <div class="exercise-signature">public class Denda</div>
+            <div class="exercise-description">Dendan saltzeko dauden autoen zerrenda eta bertan lan egiten duten saltzaileen zerrenda biltzen ditu.</div>
+            <table class="details-table">
+                <tr>
+                    <th>Atributu pribatuak</th>
+                    <td>
+                        <span class="code-inline">private List&lt;Autoa&gt; listaCoches</span>: dendan saltzeko dauden autoen zerrenda (stocka).<br>
+                        <span class="code-inline">private List&lt;Saltzailea&gt; listaVendedores</span>: dendako saltzaileen zerrenda.
+                    </td>
+                </tr>
+                <tr>
+                    <th>Eraikitzaileak</th>
+                    <td>
+                        <span class="code-inline">public Denda()</span>: bi zerrendak hutsik (<span class="code-inline">new ArrayList&lt;&gt;()</span>) hasieratzen ditu.<br>
+                        <span class="code-inline">public Denda(List&lt;Autoa&gt; listaCoches, List&lt;Saltzailea&gt; listaVendedores)</span>: jasotako zerrendekin hasieratzen du denda.
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="exercise-card">
+            <div class="exercise-header">3.1 Metodoa: garbituEskaintzak</div>
+            <div class="exercise-signature">public void garbituEskaintzak()</div>
+            <div class="exercise-description">Dendako stockean (<span class="code-inline">listaCoches</span>) dauden auto guztiak aztertzen ditu, eta eskaintza <strong>iraungita</strong> dutenei (<span class="code-inline">deskontuIraungitze.before(new Date())</span>) deskontua (<span class="code-inline">0</span>) eta iraungitze-data (<span class="code-inline">null</span>) ezabatzen dizkie. Indarrean dauden eskaintzak ez dira ukitu behar.</div>
+            <table class="details-table">
+                <tr>
+                    <th>Parametroak</th>
+                    <td>Ez du parametrorik jasotzen.</td>
+                </tr>
+                <tr>
+                    <th>Emaitza</th>
+                    <td><span class="code-inline">void</span> (iraungitako eskaintzak garbitzen ditu).</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="exercise-card">
+            <div class="exercise-header">3.2 Metodoa: erakutsiIrabaziak</div>
+            <div class="exercise-signature">public void erakutsiIrabaziak()</div>
+            <div class="exercise-description">Dendako saltzaile bakoitzaren izena eta lortutako irabaziak pantailatik inprimatzen ditu, eta amaieran saltzaile guztien <strong>irabazien batura totala</strong> erakusten du.</div>
+            <table class="details-table">
+                <tr>
+                    <th>Parametroak</th>
+                    <td>Ez du parametrorik jasotzen.</td>
+                </tr>
+                <tr>
+                    <th>Emaitza</th>
+                    <td><span class="code-inline">void</span> (kontsolatik saltzaile bakoitzaren datuak eta guztirako totala erakusten ditu).</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- 4. BLOKEA: MAIN -->
+        <div class="section-header">4. BLOKEA: PROGRAMA NAGUSIA (Main.java)</div>
+        <div class="section-desc">Programaren sarrera-puntua, sortutako klase eta metodo guztien funtzionamendu zuzena egiaztatzeko.</div>
+
+        <div class="exercise-card">
+            <div class="exercise-header">4.1 Proba-eszenatokia: Main</div>
+            <div class="exercise-signature">public static void main(String[] args)</div>
+            <div class="exercise-description">Osatu <span class="code-inline">Main</span> metodoa urrats hauek jarraituz eta emaitzak kontsolatik bistaratuz:</div>
+            <table class="details-table">
+                <tr>
+                    <th>1. Hasieraketa</th>
+                    <td>Sortu gutxienez <strong>6 auto</strong> desberdin, <strong>2 saltzaile</strong> (bakoitzari asteko 7 egunetako <span class="code-inline">lanOrduak</span> zerrenda esleituz) eta <strong><span class="code-inline">Denda</span></strong> objektu bat autoak eta saltzaileak gehituz.</td>
+                </tr>
+                <tr>
+                    <th>2. Eskaintzak</th>
+                    <td>Sortu eskaintza bat auto bakarrarentzat eta beste bat auto-zerrenda batentzat. Horrez gain, simulatu auto batean <strong>iraungitako eskaintza</strong> bat (atzoko data jarriz) eta egiaztatu <span class="code-inline">getAzkenPrezioa()</span> metodoak ez duela deskontua aplikatzen.</td>
+                </tr>
+                <tr>
+                    <th>3. Salmentak</th>
+                    <td>Burutu hainbat salmenta saltzaile ezberdinekin eta egiaztatu saldutako autoak dendako stocketik desagertu direla eta saltzaileen zerrendetan agertzen direla.</td>
+                </tr>
+                <tr>
+                    <th>4. Irabaziak eta garbiketa</th>
+                    <td>Deitu <span class="code-inline">erakutsiIrabaziak()</span> metodora saltzaile bakoitzaren irabaziak eta totala ikusteko, eta exekutatu <span class="code-inline">garbituEskaintzak()</span> iraungitako eskaintza garbitu dela egiaztatzeko.</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+</body>
+</html>
